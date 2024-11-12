@@ -668,3 +668,7 @@ footer h5 {
   text-align: center;
   margin-top: 4px;
 }
+
+#service .btn:hover {
+  color: var(--app-primary-color) !important;
+}
