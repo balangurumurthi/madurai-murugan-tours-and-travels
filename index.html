@@ -236,9 +236,9 @@
             <a
               class="nav-link"
               href="https://maduraimurugantoursandtravels.com/#address"
-              ><Address></Address></a
-            >
-          </li>                                        
+              ><address></address
+            ></a>
+          </li>
           <li class="nav-item">
             <a
               class="nav-link"
@@ -1806,31 +1806,37 @@
 
     <!--  scroll smoothly -->
     <script>
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        // Check if the anchor is not part of the carousel (optional exclusion)
+      document.querySelectorAll('a[href*="#"]').forEach((anchor) => {
+        // Exclude links that are part of a carousel or any specific elements (optional)
         if (!anchor.closest(".carousel")) {
           anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            const targetElement = document.querySelector(
-              this.getAttribute("href")
-            );
+            const href = this.getAttribute("href");
+            const currentURL =
+              window.location.origin + window.location.pathname;
 
-            // Scroll to the element using scrollIntoView
-            targetElement.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
+            // Check if the link's hash corresponds to the current page
+            if (href.startsWith("#") || href.startsWith(currentURL + "#")) {
+              e.preventDefault();
 
-            // Adjust scroll position for sticky navbar
-            const navbarHeight = document.querySelector(".navbar").offsetHeight; // Select your sticky navbar here
-            const elementPosition =
-              targetElement.getBoundingClientRect().top + window.pageYOffset;
-            const offsetPosition = elementPosition - navbarHeight;
+              // Extract the hash part and find the target element
+              const targetId = href.split("#")[1];
+              const targetElement = document.getElementById(targetId);
 
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: "smooth",
-            });
+              if (targetElement) {
+                // Scroll to the element
+                const navbarHeight =
+                  document.querySelector(".navbar").offsetHeight; // Adjust for sticky navbar
+                const elementPosition =
+                  targetElement.getBoundingClientRect().top +
+                  window.pageYOffset;
+                const offsetPosition = elementPosition - navbarHeight;
+
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: "smooth",
+                });
+              }
+            }
           });
         }
       });
