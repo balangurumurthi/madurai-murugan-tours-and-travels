@@ -3,7 +3,7 @@
   --app-secondary-color: #f08261;
   --app-light-color: #f9f9f9;
   --app-white-color: #ffffff;
-  --app-mosgreen-color: #8B8B02;
+  --app-mosgreen-color: #8b8b02;
 }
 
 /* Apply scroll snapping */
@@ -124,7 +124,7 @@ footer h5 {
   width: 100%;
 }
 
-#service .card-title{
+#service .card-title {
   color: var(--app-primary-color) !important;
   font-weight: bold;
   margin-bottom: 8px !important;
@@ -161,7 +161,7 @@ footer h5 {
 
 /*  to align label and price - colon center */
 .pricing-details li {
-  display: flex;  
+  display: flex;
 
   strong {
     display: flex;
@@ -512,7 +512,7 @@ footer h5 {
 .pricing-details {
   background-color: rgba(201, 217, 242, 0.3);
   padding: 15px;
-  border-radius: 5px;  
+  border-radius: 5px;
 }
 
 .pricing-details p {
@@ -663,7 +663,9 @@ footer h5 {
   border-color: white !important;
 }
 
-.below-300-price-table table, .below-300-price-table td , .below-300-price-table th {
+.below-300-price-table table,
+.below-300-price-table td,
+.below-300-price-table th {
   border: 1px solid black;
   text-align: center;
   margin-top: 4px;
@@ -672,8 +674,6 @@ footer h5 {
 #service .btn:hover {
   color: var(--app-primary-color) !important;
 }
-
-
 
 /* book innova page */
 .keyword-section {
@@ -730,4 +730,19 @@ footer h5 {
 .keyword-list li:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .image-text-wrapper {
+    flex-direction: column; /* Stack items vertically */
+  }
+  .image-container {
+    flex: 1 1 100%; /* Take full width */
+    margin-bottom: 20px; /* Add spacing below the image */
+  }
+  .text-container {
+    flex: 1 1 100%; /* Take full width */
+    text-align: center; /* Optional: center-align text */
+  }
 }
