@@ -49,6 +49,10 @@ body {
   border-bottom: 5px solid var(--app-secondary-color);
 }
 
+.fs-small {
+  font-size: 0.9rem;
+}
+
 /* General styling for the navbar links when scrolled */
 .nav-menu-link-white li a {
   color: var(--app-white-color) !important; /* Set all links to white */
