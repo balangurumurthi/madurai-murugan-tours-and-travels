@@ -616,7 +616,7 @@ footer h5 {
   transition: transform 0.3s ease-in-out;
 }
 
-#book-now .card:hover {
+#bookNow .card:hover {
   transform: none;
 }
 
