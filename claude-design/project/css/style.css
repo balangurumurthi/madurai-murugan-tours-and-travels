@@ -1,0 +1,752 @@
+:root {
+  --app-primary-color: #1a2d6d;
+  --app-secondary-color: #f08261;
+  --app-light-color: #f9f9f9;
+  --app-white-color: #ffffff;
+  --app-mosgreen-color: #8b8b02;
+}
+
+/* Apply scroll snapping */
+body {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif; /* or use any bold, condensed font available */
+  min-height: 100%;
+  background-color: var(--app-light-color);
+  color: var(--app-primary-color); /* setting text to primary */
+}
+
+.app-white-text-color {
+  color: var(--app-white-color) !important;
+}
+
+.app-mosgreen-text-color {
+  color: var(--app-mosgreen-color) !important;
+}
+
+.app-primary-text-color {
+  color: var(--app-primary-color) !important;
+}
+
+.app-secondary-text-color {
+  color: var(--app-secondary-color) !important;
+}
+
+.bg-app-primary {
+  background-color: var(--app-primary-color) !important;
+}
+
+.bg-app-secondary {
+  background-color: var(--app-secondary-color) !important;
+}
+
+.nav-bar-background {
+  background-color: var(--app-primary-color);
+  border-bottom: 5px solid var(--app-secondary-color);
+}
+
+.fs-small {
+  font-size: 0.9rem;
+}
+
+/* General styling for the navbar links when scrolled */
+.nav-menu-link-white li a {
+  color: var(--app-white-color) !important; /* Set all links to white */
+}
+
+/* Style the active nav link specifically */
+.nav-menu-link-white li a.active-nav {
+  color: var(
+    --app-secondary-color
+  ) !important; /* Set the active link to the secondary color */
+}
+
+/* Optional: Smooth transition for color change */
+.nav-link,
+.nav-menu-link-white li a.active-nav {
+  transition: color 0.3s ease;
+}
+
+.active-nav {
+  color: var(--app-secondary-color) !important;
+}
+
+footer p,
+footer h5 {
+  color: white;
+}
+
+.phone-icon {
+  display: inline-block;
+  animation: bottomShake 2s infinite;
+  transform-origin: top center; /* Fixes the top, moves only the bottom */
+}
+
+/* Keyframes for bottom shake effect */
+@keyframes bottomShake {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.3) rotate(-5deg);
+  }
+  50% {
+    transform: scale(1.3) rotate(5deg);
+  }
+  75% {
+    transform: scale(1.3) rotate(-5deg);
+  }
+}
+
+.video-section {
+  height: 100vh;
+}
+
+#bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: -1;
+  height: 100vh;
+  width: 100%;
+}
+
+.fallback-main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: -1;
+  height: 100vh;
+  background-size: cover;
+  width: 100%;
+}
+
+#service .card-title {
+  color: var(--app-primary-color) !important;
+  font-weight: bold;
+  margin-bottom: 8px !important;
+}
+
+#service .card-text {
+  color: var(--app-mosgreen-color) !important;
+  /* font-weight: bold; */
+  font-size: 1rem;
+}
+
+.pricing-details-container {
+  margin-top: 15px;
+  min-height: 200px;
+}
+
+.small-text {
+  font-size: 1rem !important;
+}
+
+.extra-small-text {
+  font-size: 0.9rem !important;
+}
+
+.price-label {
+  display: inline-block;
+  max-width: 115px;
+  width: 100%;
+}
+
+.price-colon {
+  margin-left: auto;
+}
+
+/*  to align label and price - colon center */
+.pricing-details li {
+  display: flex;
+
+  strong {
+    display: flex;
+    margin-right: 8px;
+  }
+}
+
+.pricing-heading {
+  margin-bottom: 8px;
+}
+
+/* Phone Number and Car Icon Styling */
+.phone-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #333;
+  font-size: 1.5em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* CSS */
+.headline {
+  font-size: 4em; /* Large font size */
+  color: #f5a623; /* Attractive orange color */
+  font-weight: bold; /* Bold text */
+  text-align: center; /* Centered text */
+  font-family: "Arial", sans-serif; /* Modern, clean font */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Slight shadow for depth */
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
+/* CSS Styling for Row Layout */
+.reviews-section {
+  background-color: #f9f9f9;
+  padding: 40px;
+  text-align: center;
+  background-image: url("https://preview.colorlib.com/theme/tralive/assets/img/gallery/section_bg1.jpg.webp");
+}
+
+.reviews-section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.review-author {
+  font-weight: bold;
+  color: #333;
+}
+
+#whatsapp-icon {
+  position: fixed;
+  height: 100px;
+  width: 100px;
+  bottom: 0px; /* Distance from the bottom */
+  right: 5px; /* Distance from the right */
+  z-index: 1000; /* Ensures the icon is on top of other elements */
+}
+
+.reviews-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.review {
+  flex: 1 1 300px; /* Sets a minimum width and allows flexibility */
+  max-width: 300px; /* Optional: Limits max width of each review */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Aligns text to the left */
+  min-height: 310px;
+}
+
+.card {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+  display: flex;
+  align-items: center; /* Aligns icon and name vertically */
+  margin-bottom: 10px; /* Space below user info */
+}
+
+.user-icon {
+  width: 40px; /* Set the width of user icons */
+  height: 40px; /* Set the height of user icons */
+  border-radius: 50%; /* Makes the icon circular */
+  margin-right: 10px; /* Space between icon and name */
+}
+
+.user-name {
+  font-weight: bold;
+  color: #333; /* Customize the color as needed */
+}
+
+.rating {
+  font-size: 1.5em;
+  color: #ffcc00; /* Gold color for stars */
+}
+
+.review-text {
+  font-size: 1.1em;
+  color: #666;
+  margin: 10px 0;
+}
+
+.footer-section h2 {
+  text-align: center;
+}
+
+.footer {
+  color: white;
+  background-color: #1a2d6d;
+  text-align: center;
+}
+
+.footer a {
+  margin: 0;
+  color: white;
+}
+
+.card-img-top {
+  height: 200px; /* Adjust height for uniformity */
+  object-fit: cover; /* Ensure images fit well */
+}
+
+/* Styling the main business name */
+.custom-navbar-brand {
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  /* background: linear-gradient(
+    to right,
+    #1a6baa,
+    #ff6600
+  );  */
+  background: linear-gradient(to right, var(--app-primary-color), #ff6600);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.custom-navbar-brand-footer {
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.custom-navbar-brand-scrolled {
+  background: transparent !important;
+  -webkit-text-fill-color: var(--app-white-color) !important;
+  color: var(--app-white-color);
+}
+
+/* Styling the secondary text "Tours and Travels" */
+.custom-navbar-subtext {
+  font-family: "Poppins", sans-serif; /* same font family */
+  font-weight: 400;
+  font-size: 1rem;
+  color: #555; /* dark gray, or you can use the same gradient as above */
+  letter-spacing: 0.5px;
+  display: block; /* Forces text below main text */
+  margin-top: -5px;
+}
+
+/* Main section styling */
+.main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #f8f9fa; /* Change this to your background color or image */
+  text-align: center;
+
+  background-image: url("assets/images/main.jpg");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden; /* Hide the overflow for clean edges */
+  position: relative;
+}
+
+/* Typing effect text styling */
+.animated-text {
+  display: inline-block;
+  width: 0ch;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+  color: white;
+  border-right: 2px solid white;
+  white-space: nowrap;
+  word-break: break-word;
+  overflow: hidden;
+  animation: typing 4s steps(30, end) forwards,
+    blink-caret 0.75s step-end 4s forwards;
+}
+
+/* Typing animation */
+@keyframes typing {
+  from {
+    width: 0ch;
+  }
+  to {
+    width: 27ch;
+  }
+}
+
+/* Blinking caret animation */
+@keyframes blink-caret {
+  0%,
+  50% {
+    border-color: white;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+/* Yellow color for "TRAVEL" */
+.yellow-text {
+  color: #ffc300; /* Bright yellow color */
+}
+
+/* Button styling */
+.explore-button {
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #007bff;
+  /* background-color: var(--app-secondary-color); */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 1.5s forwards;
+  animation-delay: 4.5s; /* Start after the typing animation */
+}
+
+.explore-button:hover {
+  background-color: #0056b3;
+}
+
+/* Slide-up animation for button */
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.align-text-start {
+  text-align: start;
+}
+
+#whatsapp-icon i {
+  color: green;
+  position: relative;
+}
+
+#whatsapp-icon i:after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  bottom: 4px;
+  left: 0px;
+  background: white;
+  z-index: 0;
+  border-radius: 100%;
+}
+
+#whatsapp-icon i:before {
+  z-index: 1;
+  position: relative;
+}
+
+.logo-image {
+  width: 100px;
+  height: 100px;
+}
+
+.footer-logo-img {
+  margin-top: 7.5px;
+}
+
+@media (max-width: 768px) {
+  .card-img-top {
+    height: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-img-top {
+    height: 250px;
+  }
+}
+
+@media (max-width: 478px) {
+  .card-img-top {
+    height: 180px;
+  }
+
+  .logo-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .footer-logo-img {
+    margin-top: 4.5px;
+  }
+
+  .custom-navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .footer h5 {
+    margin-bottom: 10px;
+  }
+  .custom-navbar-brand-footer {
+    font-size: 1.2rem;
+  }
+
+  .animated-text {
+    font-size: 1.2rem;
+  }
+}
+
+.bookNowButton {
+  color: var(--app-white-color);
+  background-color: var(--app-secondary-color);
+}
+
+.pricing-details {
+  background-color: rgba(201, 217, 242, 0.3);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.pricing-details p {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.pricing-details ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.pricing-details li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.pricing-details strong {
+  font-weight: bold;
+}
+
+/* price table  */
+
+.table-container {
+  margin: 20px auto;
+  overflow-x: auto;
+}
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* faq */
+/* Card header styles */
+.card-header {
+  background-color: #1a2d6d; /* Primary color */
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 15px;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Remove focus outline */
+.card-header:focus,
+.card-header:active {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Chevron icon animation */
+.card-header i {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Rotate the icon and change color on expand */
+.card-header.active i {
+  transform: rotate(180deg);
+  color: #f08261; /* Secondary color */
+}
+
+/* Change question color on expand */
+.card-header.active {
+  color: #f08261; /* Secondary color */
+}
+
+/* Card body styling */
+.card-body {
+  background-color: #ffffff; /* White background for content */
+  color: #1a2d6d; /* Primary color text */
+  padding: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Equal-height cards and layout adjustments */
+.card {
+  margin-bottom: 20px;
+}
+
+/* tour places */
+
+/* Custom styling */
+.section-header {
+  font-size: 2rem;
+  margin: 40px 0 20px;
+  color: #007bff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.card {
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+#bookNow .card:hover {
+  transform: none;
+}
+
+#faqAccordion .card:hover {
+  transform: scale(1.01);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  /* box-shadow: 0 4px 20px rgba(255, 102, 0, 0.3); */
+}
+.card img {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.card:hover img {
+  transform: scale(1.1);
+}
+.card-body h5 {
+  font-size: 1.1rem;
+  color: #333;
+}
+.card-body p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.tooltip-icon {
+  cursor: pointer;
+  color: #f08261; /* Adjust color as needed */
+}
+
+.info-icon i {
+  margin-left: 5px;
+  color: #f08261; /* Secondary color for the icon */
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.navbar-toggler-icon-white {
+  background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+.navbar-toggler-button {
+  border-color: white !important;
+}
+
+.below-300-price-table table,
+.below-300-price-table td,
+.below-300-price-table th {
+  border: 1px solid black;
+  text-align: center;
+  margin-top: 4px;
+}
+
+#service .btn:hover {
+  color: var(--app-primary-color) !important;
+}
+
+/* book innova page */
+.keyword-section {
+  padding: 20px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+/* .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+} */
+
+.image-text-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+.image-container {
+  flex: 1 1 40%;
+}
+.text-container {
+  flex: 1 1 50%;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+.innova-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.keyword-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+}
+.keyword-list li {
+  background: #fff;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.keyword-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .image-text-wrapper {
+    flex-direction: column; /* Stack items vertically */
+  }
+  .image-container {
+    flex: 1 1 100%; /* Take full width */
+    margin-bottom: 20px; /* Add spacing below the image */
+  }
+  .text-container {
+    flex: 1 1 100%; /* Take full width */
+    text-align: center; /* Optional: center-align text */
+  }
+}
