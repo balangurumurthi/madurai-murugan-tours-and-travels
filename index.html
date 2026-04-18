@@ -343,6 +343,58 @@
             </div>
           </div>
 
+          <!-- Ertiga -->
+          <div class="col-12 col-md-6 col-lg-6 col-xl-4 d-flex">
+            <div class="card mb-4 flex-fill">
+              <img src="assets/images/ertiga.jpg" class="card-img-top" alt="Ertiga" />
+              <div class="card-body text-start d-flex flex-column justify-content-between">
+                <!-- name and seat capacity -->
+                <div class="mb-3">
+                  <h4 class="card-title"><a href="https://maduraimurugantoursandtravels.com/ertiga-rental-in-madurai" style="color: inherit">Ertiga</a></h4>
+                  <p class="card-text"><strong>Seat Capacity: 7</strong><br /></p>
+                </div>
+
+                <div class="pricing-details-container">
+                  <p class="pricing-heading app-primary-text-color">
+                    <strong>Pricing</strong>
+                  </p>
+                  <div class="pricing-details">
+                    <ul>
+                      <li>
+                        <strong class="price-label">Above 300km<span class="price-colon">:</span></strong>
+                        ₹18/km
+                      </li>
+                      <li class="d-flex flex-column below-300-price-table">
+                        <strong class="price-label">Below 300km<span class="price-colon">:</span></strong>
+                        <table>
+                          <tr>
+                            <th class="app-mosgreen-text-color">Rent</th>
+                            <th class="app-mosgreen-text-color">Fuel Charge</th>
+                          </tr>
+                          <tr>
+                            <td>₹2200/day</td>
+                            <td>₹12/km</td>
+                          </tr>
+                        </table>
+                      </li>
+                      <li>
+                        <strong class="price-label">Hour Rent<span class="price-colon">:</span></strong>
+                        <div class="d-flex flex-column">
+                          ₹3200
+                          <span class="extra-small-text">(Incl. of 8 hours & 80km)</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <a href="#bookNow">
+                  <button class="btn mt-2 w-100 bookNowButton" id="bookErtiga"><i class="fa-solid fa-phone phone-icon mr-3"></i>Book Now</button></a
+                >
+              </div>
+            </div>
+          </div>
+
           <!-- Etios -->
           <div class="col-12 col-md-6 col-lg-6 col-xl-4 d-flex">
             <div class="card mb-4 flex-fill">
@@ -678,6 +730,14 @@
               <td>₹3200</td>
             </tr>
             <tr>
+              <td>Ertiga</td>
+              <td>7</td>
+              <td>₹18/km</td>
+              <td>₹2200/day</td>
+              <td>₹12/km</td>
+              <td>₹3200</td>
+            </tr>
+            <tr>
               <td>Etios or Equivalent</td>
               <td>4</td>
               <td>₹14/km</td>
@@ -727,6 +787,7 @@
                 <option value="Innova Crysta">Innova Crysta</option>
                 <option value="Innova Hycross">Innova Hycross</option>
                 <option value="Innova or Equivalent">Innova or Equivalent</option>
+                <option value="Ertiga">Ertiga</option>
                 <option value="Etios or Equivalent">Etios or Equivalent</option>
                 <option value="Tempo Traveller AC 12 Seater">Tempo Traveller AC 12 Seater</option>
                 <option value="Tempo Traveller AC 18 Seater">Tempo Traveller AC 18 Seater</option>
@@ -1387,6 +1448,10 @@ Additional Notes: ${notes}`;
 
       document.getElementById("bookInnovaHycross").addEventListener("click", function () {
         document.getElementById("carType").value = "Innova Hycross";
+      });
+
+      document.getElementById("bookErtiga").addEventListener("click", function () {
+        document.getElementById("carType").value = "Ertiga";
       });
 
       document.getElementById("bookEtios").addEventListener("click", function () {
