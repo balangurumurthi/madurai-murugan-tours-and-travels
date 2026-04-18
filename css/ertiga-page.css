@@ -204,28 +204,39 @@ body.v-page {
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  background: var(--v-sand);
+  background:
+    radial-gradient(ellipse at 50% 35%, #ffffff 0%, #f4ecdb 55%, #e6d8b8 100%);
   min-height: 440px;
   box-shadow: 0 20px 50px -20px rgba(26, 45, 109, 0.35);
 }
 .v-hero-photo img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  object-position: center 42%;
   display: block;
   position: absolute;
   inset: 0;
-  padding: 12px;
-  background: #fff;
+  background: transparent;
+  mix-blend-mode: multiply;
+}
+.v-hero-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 90%, rgba(15, 26, 68, 0.18), transparent 55%);
+  pointer-events: none;
+  z-index: 1;
 }
 .v-hero-photo::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(15, 26, 68, 0.65) 100%);
+  background: linear-gradient(180deg, transparent 55%, rgba(15, 26, 68, 0.78) 100%);
   pointer-events: none;
+  z-index: 1;
 }
+.v-hero-photo .v-price-chip { z-index: 2; }
 .v-price-chip {
   position: absolute;
   bottom: 20px;
