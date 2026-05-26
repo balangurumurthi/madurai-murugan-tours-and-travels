@@ -1,0 +1,1145 @@
+/* ============================================================
+   Rameshwaram tour package page — incremental styles on top of
+   chennai-page.css. Reuses --ch-navy, --ch-peach, --ch-line, etc.
+   ============================================================ */
+
+/* ============================================================
+   HERO v2 — compact, info-dense, 2-col layout (text + preview)
+   ============================================================ */
+.rm-hero-v2.ch-hero {
+  min-height: 0;
+  height: auto;
+}
+.rm-hero-content-v2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 44px;
+  align-items: center;
+  padding: 100px 28px 64px !important;
+  max-width: 1280px;
+}
+
+/* Left column — text */
+.rm-hero-text { min-width: 0; }
+.rm-hero-content-v2 .ch-hero-eyebrow { animation: ch-fade-in-up 0.6s 0.1s both; }
+.rm-hero-content-v2 h1 {
+  font-size: clamp(26px, 3.4vw, 40px) !important;
+  line-height: 1.15 !important;
+  margin: 12px 0 14px !important;
+  max-width: none !important;
+}
+.rm-hero-content-v2 .ch-hero-sub {
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 18px !important;
+  max-width: none !important;
+}
+
+/* Spec chips */
+.rm-hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 22px;
+  animation: ch-fade-in-up 0.7s 0.5s both;
+}
+.rm-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 500;
+  padding: 7px 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  white-space: nowrap;
+}
+.rm-chip i {
+  color: #ffcdb9;
+  font-size: 11px;
+}
+
+/* CTA row override — only 2 buttons in v2, keep on one line on desktop */
+.rm-hero-content-v2 .ch-cta-row {
+  margin-top: 0;
+  margin-bottom: 0;
+  animation: ch-fade-in-up 0.7s 0.6s both;
+}
+
+/* Trust bar */
+.rm-trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 22px;
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  animation: ch-fade-in-up 0.8s 0.75s both;
+}
+.rm-trust {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 12.5px;
+  font-weight: 500;
+}
+.rm-trust-stars {
+  color: #ffd76e;
+  letter-spacing: 1.2px;
+  font-size: 14px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+.rm-trust-icon i {
+  color: #25d366;
+  font-size: 13px;
+}
+
+/* Right column — Preview card */
+.rm-hero-preview {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 26px 26px 22px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  animation: ch-fade-in-up 0.8s 0.4s both;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+.rm-preview-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--ch-line, #e6e8f0);
+}
+.rm-preview-head > i {
+  font-size: 22px;
+  color: var(--ch-peach, #f08967);
+  background: linear-gradient(135deg, #fff1ea, #ffe4d6);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.rm-preview-head strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ch-navy, #1a2d6d);
+  line-height: 1.2;
+}
+.rm-preview-head span {
+  font-size: 12px;
+  color: #5c6480;
+  display: block;
+  margin-top: 2px;
+}
+
+.rm-preview-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.rm-preview-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: #1f2540;
+  line-height: 1.5;
+}
+.rm-preview-list li > i {
+  color: #25d366;
+  margin-top: 4px;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+.rm-preview-list li strong {
+  color: var(--ch-navy, #1a2d6d);
+  font-weight: 600;
+}
+
+.rm-preview-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ch-line, #e6e8f0);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ch-peach, #f08967);
+  text-decoration: none;
+  transition: gap 0.2s, color 0.2s;
+}
+.rm-preview-link:hover {
+  color: #ed6a3f;
+  text-decoration: none;
+  gap: 10px;
+}
+.rm-preview-link i {
+  font-size: 11px;
+}
+
+/* Hero v2 responsive */
+@media (max-width: 900px) {
+  .rm-hero-content-v2 {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 90px 20px 48px !important;
+  }
+  .rm-hero-preview { padding: 22px 22px 20px; }
+}
+@media (max-width: 600px) {
+  .rm-hero-content-v2 {
+    padding: 80px 16px 36px !important;
+    gap: 22px;
+  }
+  .rm-hero-content-v2 h1 { font-size: 26px !important; line-height: 1.18 !important; }
+  .rm-hero-content-v2 .ch-hero-sub { font-size: 14.5px !important; }
+  .rm-hero-chips .rm-chip { font-size: 11.5px; padding: 6px 11px; }
+  .rm-trust-bar { gap: 12px 16px; margin-top: 22px; padding-top: 18px; }
+  .rm-trust { font-size: 11.5px; }
+  .rm-preview-list li { font-size: 12.5px; }
+}
+
+/* ---- Hero placeholder (used until rameshwaram/main.jpg exists) ---- */
+.rm-hero-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(240,137,103,0.45), transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(37,211,102,0.25), transparent 60%),
+    linear-gradient(135deg, #0e1a44 0%, #1a2d6d 45%, #2f4aa3 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 32px;
+  color: rgba(255,255,255,0.55);
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  position: relative;
+}
+.rm-hero-placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    /* sea-bridge horizon lines */
+    linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 30%),
+    repeating-linear-gradient(180deg, transparent 0 14%, rgba(255,255,255,0.05) 14% 14.4%);
+  pointer-events: none;
+}
+.rm-hero-placeholder span {
+  position: relative;
+  z-index: 2;
+  opacity: 0.85;
+}
+
+/* ---- Included / Extras card (replaces inline styles in chennai page) ---- */
+.rm-inc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.rm-inc-card {
+  background: #fff;
+  border: 1px solid var(--ch-line, #e6e8f0);
+  border-radius: 16px;
+  padding: 28px;
+}
+.rm-inc-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ch-navy, #1a2d6d);
+  margin: 0 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.rm-inc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: var(--ch-ink, #1f2540);
+  line-height: 2.2;
+}
+.rm-inc-list li i {
+  margin-right: 8px;
+  font-size: 12px;
+}
+.rm-inc-list-extra li i { color: var(--ch-peach, #f08967); font-size: 11px; }
+
+@media (max-width: 720px) {
+  .rm-inc-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   PLACE CARDS — hotels & restaurants
+   ============================================================ */
+.rm-place-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+.rm-place-card {
+  background: #fff;
+  border: 1px solid var(--ch-line, #e6e8f0);
+  border-radius: 18px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+.rm-place-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(26,45,109,0.10);
+}
+.rm-place-card h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ch-navy, #1a2d6d);
+  margin: 12px 0 8px;
+  line-height: 1.3;
+}
+.rm-place-card p {
+  font-size: 14px;
+  color: var(--ch-ink, #1f2540);
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+.rm-place-meta {
+  font-size: 13px !important;
+  color: #5c6480 !important;
+  margin: 0 0 10px !important;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.rm-place-meta i { color: var(--ch-peach, #f08967); }
+
+.rm-place-tag {
+  display: inline-block;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  align-self: flex-start;
+  margin-bottom: 4px;
+}
+.rm-tag-premium { background: linear-gradient(135deg, #1a2d6d, #2f4aa3); color: #fff; }
+.rm-tag-boutique { background: linear-gradient(135deg, #f08967, #ed6a3f); color: #fff; }
+.rm-tag-budget { background: #eaf6ee; color: #1e6b3a; border: 1px solid #c8e6d3; }
+.rm-tag-fine { background: linear-gradient(135deg, #1a2d6d, #2f4aa3); color: #fff; }
+.rm-tag-trad { background: linear-gradient(135deg, #b04e00, #f08967); color: #fff; }
+.rm-tag-fast { background: #fff0e5; color: #a44e2c; border: 1px solid #f4c9b5; }
+
+.rm-place-map {
+  margin: 14px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f4f5fa;
+  min-height: 220px;
+}
+.rm-place-map iframe { display: block; }
+
+.rm-place-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 8px;
+  flex-wrap: wrap;
+}
+.rm-mini-btn {
+  flex: 1;
+  min-width: 130px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #f4f5fa;
+  color: var(--ch-navy, #1a2d6d);
+  text-decoration: none;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background 0.2s, transform 0.2s;
+}
+.rm-mini-btn:hover {
+  background: #e9ecf6;
+  text-decoration: none;
+  color: var(--ch-navy, #1a2d6d);
+  transform: translateY(-1px);
+}
+.rm-mini-btn.rm-mini-wa {
+  background: #25d366;
+  color: #fff;
+}
+.rm-mini-btn.rm-mini-wa:hover { background: #1eb955; color: #fff; }
+
+@media (max-width: 980px) { .rm-place-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .rm-place-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   MADURAI ACCOMMODATION SECTION
+   ============================================================ */
+.rm-madurai-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.rm-madurai-card {
+  background: #fff;
+  border: 1px solid var(--ch-line, #e6e8f0);
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.rm-madurai-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(26,45,109,0.08);
+}
+.rm-madurai-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #fff1ea, #ffe4d6);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ch-peach, #f08967);
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+.rm-madurai-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ch-navy, #1a2d6d);
+  margin: 0 0 10px;
+}
+.rm-madurai-card p {
+  font-size: 14px;
+  color: var(--ch-ink, #1f2540);
+  line-height: 1.65;
+  margin: 0;
+}
+.rm-madurai-cta {
+  margin-top: 32px;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.rm-madurai-cta p {
+  font-size: 14.5px;
+  color: var(--ch-ink, #1f2540);
+  margin-bottom: 16px;
+}
+
+@media (max-width: 820px) { .rm-madurai-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   INSTAGRAM REELS GRID
+   ============================================================ */
+.rm-insta-handle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #c13584;
+  background: linear-gradient(135deg, #fff1ea, #f7e3ff);
+  padding: 8px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid #f4c9e0;
+  transition: transform 0.2s;
+}
+.rm-insta-handle:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: #c13584;
+}
+.rm-insta-handle i { font-size: 16px; }
+
+.rm-reel-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  margin-top: 32px;
+}
+.rm-reel {
+  aspect-ratio: 9 / 16;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.rm-reel:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(26,45,109,0.18);
+  text-decoration: none;
+}
+.rm-reel-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+/* Gradient placeholders — swap with real reel thumbnails later */
+.rm-bg-1 { background: linear-gradient(160deg, #0e1a44 0%, #1a2d6d 50%, #2f4aa3 100%); }
+.rm-bg-2 { background: linear-gradient(160deg, #f08967 0%, #ed6a3f 50%, #b04e00 100%); }
+.rm-bg-3 { background: linear-gradient(160deg, #1a2d6d 0%, #2563eb 50%, #16a34a 100%); }
+.rm-bg-4 { background: linear-gradient(160deg, #f5d76e 0%, #f08967 50%, #c13584 100%); }
+.rm-bg-5 { background: linear-gradient(160deg, #243a82 0%, #c13584 50%, #f08967 100%); }
+.rm-bg-6 { background: linear-gradient(160deg, #16a34a 0%, #1a2d6d 50%, #f08967 100%); }
+
+/* Subtle texture overlay so placeholders look photographic */
+.rm-reel-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.18), transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(0,0,0,0.25), transparent 60%);
+}
+
+.rm-reel-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, transparent 30%, transparent 60%, rgba(0,0,0,0.6) 100%);
+}
+.rm-reel-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+}
+.rm-reel-handle {
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  letter-spacing: 0.3px;
+  max-width: calc(100% - 24px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rm-reel-top > i { font-size: 16px; text-shadow: 0 2px 6px rgba(0,0,0,0.4); }
+.rm-reel-play {
+  align-self: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin: auto;
+  border: 2px solid rgba(255,255,255,0.5);
+  transition: transform 0.25s, background 0.25s;
+}
+.rm-reel:hover .rm-reel-play {
+  transform: scale(1.1);
+  background: rgba(255,255,255,0.35);
+}
+.rm-reel-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.rm-reel-caption {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+.rm-reel-stats {
+  font-size: 10.5px;
+  opacity: 0.95;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.rm-reel-note {
+  text-align: center;
+  font-size: 12.5px;
+  color: #8087a5;
+  margin-top: 22px;
+  font-style: italic;
+}
+
+/* Featured live Instagram post */
+.rm-featured-reel {
+  margin: 32px auto 28px;
+  max-width: 600px;
+  text-align: center;
+}
+.rm-featured-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #c13584;
+  background: linear-gradient(135deg, #fff1ea, #f7e3ff);
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid #f4c9e0;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+.rm-featured-label i { font-size: 14px; }
+.rm-featured-reel .instagram-media {
+  margin-top: 18px !important;
+}
+
+/* ============================================================
+   IG posts grid (two real embeds side by side)
+   ============================================================ */
+.rm-happy-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 36px auto 16px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--ch-navy, #1a2d6d);
+}
+.rm-happy-head i {
+  font-size: 18px;
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.rm-ig-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1180px;
+  margin: 0 auto;
+  align-items: start;
+}
+.rm-ig-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Fixed-height wrapper guarantees both posts render at the same visual height,
+   even after Instagram's embed.js resizes the iframe to fit caption length. */
+.rm-ig-fixed {
+  width: 100%;
+  max-width: 540px;
+  height: 820px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.10);
+  margin: 0 auto;
+}
+.rm-ig-fixed .instagram-media,
+.rm-ig-fixed iframe {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+@media (max-width: 820px) {
+  .rm-ig-grid { grid-template-columns: 1fr; gap: 28px; }
+  .rm-ig-fixed { height: 760px; }
+}
+@media (max-width: 480px) {
+  .rm-ig-fixed { height: 680px; }
+}
+
+/* ============================================================
+   Google Maps reviews block
+   ============================================================ */
+.rm-google-reviews-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 56px auto 18px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--ch-navy, #1a2d6d);
+}
+.rm-google-reviews-head i {
+  font-size: 18px;
+  background: linear-gradient(135deg, #4285F4 0%, #EA4335 50%, #FBBC05 75%, #34A853 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.rm-google-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.rm-google-grid-photo {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1100px;
+  gap: 20px;
+}
+
+/* Photo review card */
+.rm-google-photo {
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 16 / 11;
+  background: #f4f5fa;
+  box-shadow: 0 6px 20px rgba(26, 45, 109, 0.08);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.rm-google-photo:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(26, 45, 109, 0.16);
+  text-decoration: none;
+}
+.rm-google-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.rm-google-photo:hover img {
+  transform: scale(1.04);
+}
+.rm-google-photo-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #1a2d6d;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 11px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+  z-index: 2;
+}
+.rm-google-photo-badge i {
+  font-size: 13px;
+  background: linear-gradient(135deg, #4285F4 0%, #EA4335 50%, #FBBC05 75%, #34A853 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.rm-google-photo-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+  padding: 40px 16px 14px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  z-index: 1;
+}
+.rm-google-photo-overlay .rm-google-stars {
+  color: #ffd76e;
+  font-size: 17px;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+.rm-google-photo-cta {
+  font-size: 12.5px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+.rm-google-photo:hover .rm-google-photo-cta {
+  gap: 9px;
+}
+.rm-google-photo-cta i { font-size: 11px; }
+
+.rm-google-card {
+  background: #fff;
+  border: 1px solid var(--ch-line, #e6e8f0);
+  border-radius: 16px;
+  padding: 22px 24px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  position: relative;
+}
+.rm-google-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(26, 45, 109, 0.10);
+  border-color: #4285F4;
+  text-decoration: none;
+  color: inherit;
+}
+.rm-google-stars {
+  color: #f0a000;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+.rm-google-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ch-navy, #1a2d6d);
+  line-height: 1.3;
+}
+.rm-google-tag {
+  font-size: 13px;
+  color: #5c6480;
+  margin-bottom: 4px;
+}
+.rm-google-cta {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #4285F4;
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f2f8;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s;
+}
+.rm-google-card:hover .rm-google-cta {
+  gap: 9px;
+}
+.rm-google-cta i { font-size: 11px; }
+
+@media (max-width: 900px) {
+  .rm-google-grid-photo { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  .rm-google-grid { grid-template-columns: 1fr; }
+  .rm-google-grid-photo { grid-template-columns: 1fr; }
+  .rm-google-reviews-head { margin-top: 44px; font-size: 12px; }
+}
+
+@media (max-width: 1100px) { .rm-reel-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 760px)  { .rm-reel-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; } .rm-reel-caption { font-size: 11px; } }
+@media (max-width: 480px)  { .rm-reel-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ============================================================
+   PLACES COVERED grid — replaces day-by-day itinerary
+   ============================================================ */
+.rm-places-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 32px;
+}
+.rm-place-item {
+  background: #fff;
+  border: 1px solid var(--ch-line, #e6e8f0);
+  border-radius: 16px;
+  padding: 22px 22px 22px 64px;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.rm-place-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(26, 45, 109, 0.08);
+  border-color: #d6dcef;
+}
+.rm-place-idx {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #fff1ea, #ffe4d6);
+  color: var(--ch-peach, #f08967);
+  font-weight: 700;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+}
+.rm-place-item h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ch-navy, #1a2d6d);
+  margin: 0 0 8px;
+  line-height: 1.35;
+  letter-spacing: -0.1px;
+}
+.rm-place-item p {
+  font-size: 13.5px;
+  color: var(--ch-ink, #1f2540);
+  line-height: 1.55;
+  margin: 0 0 10px;
+}
+.rm-place-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.rm-place-badge {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+.rm-place-badge.must { background: #eaf6ee; color: #1e6b3a; }
+.rm-place-badge.opt { background: #f3f4f9; color: #5c6480; }
+.rm-place-badge.twoday { background: #fff0e5; color: #a44e2c; }
+.rm-place-badge.duration { background: #eef1fa; color: #243a82; }
+
+@media (max-width: 980px) { .rm-places-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .rm-places-grid { grid-template-columns: 1fr; } .rm-place-item { padding-left: 60px; } }
+
+/* ============================================================
+   MADURAI AIRPORT TO RAMESWARAM section
+   ============================================================ */
+.rm-airport-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+.rm-airport-stats {
+  background: linear-gradient(135deg, #1a2d6d 0%, #243a82 60%, #2f4aa3 100%);
+  color: #fff;
+  border-radius: 18px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.rm-airport-stats::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(240, 137, 103, 0.2);
+}
+.rm-airport-stats h3 {
+  font-size: 14px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #ffd6c4;
+  margin: 0 0 18px;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+}
+.rm-airport-stats .rm-airport-figs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+.rm-airport-fig .num {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  display: block;
+}
+.rm-airport-fig .num span { font-size: 14px; opacity: 0.85; font-weight: 500; margin-left: 4px; }
+.rm-airport-fig .rm-fig-prefix {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #ffd6c4;
+  margin-bottom: 4px;
+  opacity: 0.85;
+}
+.rm-airport-fig .lbl {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 6px;
+  display: block;
+}
+.rm-airport-stats p.rm-airport-foot {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 22px 0 0;
+  position: relative;
+  z-index: 2;
+  line-height: 1.6;
+}
+.rm-airport-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.rm-airport-copy h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ch-navy, #1a2d6d);
+  margin: 0 0 12px;
+}
+.rm-airport-copy p {
+  font-size: 14.5px;
+  color: var(--ch-ink, #1f2540);
+  line-height: 1.65;
+  margin: 0 0 12px;
+}
+.rm-airport-copy ul {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 16px;
+  font-size: 14px;
+  color: var(--ch-ink, #1f2540);
+}
+.rm-airport-copy ul li {
+  padding: 6px 0 6px 24px;
+  position: relative;
+  line-height: 1.55;
+}
+.rm-airport-copy ul li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--ch-peach, #f08967);
+  font-weight: 700;
+}
+
+@media (max-width: 820px) {
+  .rm-airport-wrap { grid-template-columns: 1fr; }
+  .rm-airport-stats { padding: 26px; }
+  .rm-airport-stats .rm-airport-figs { grid-template-columns: 1fr 1fr; }
+}
+
+/* ============================================================
+   TARIFF "Get Quote" button (price column replacement)
+   ============================================================ */
+.rm-tariff-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: #25d366;
+  padding: 8px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.2s;
+  border: 1px solid transparent;
+}
+.rm-tariff-cta:hover {
+  background: #1eb955;
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+.rm-tariff-cta i { font-size: 12px; }
+
+/* ============================================================
+   ROUTE DETAILS grid — stack on tablet & mobile
+   ============================================================ */
+.rm-route-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 900px) {
+  .rm-route-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .rm-route-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   HERO CTA row — stack full-width on mobile for easy tapping
+   ============================================================ */
+@media (max-width: 600px) {
+  .ch-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .ch-cta-row .ch-btn {
+    width: 100%;
+    justify-content: center;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    font-size: 15px;
+  }
+}
