@@ -1,0 +1,157 @@
+/* ============================================================
+   Coimbatore tour page — incremental styles on top of
+   rameshwaram-page.css. Adds tabbed destinations UI.
+   ============================================================ */
+
+/* Coimbatore hero placeholder — greener/Nilgiris vibe */
+.cb-hero .cb-hero-placeholder {
+  background:
+    radial-gradient(circle at 20% 80%, rgba(34, 197, 94, 0.18), transparent 60%),
+    radial-gradient(circle at 78% 22%, rgba(240, 137, 103, 0.18), transparent 55%),
+    linear-gradient(135deg, #0e1a44 0%, #1a2d6d 45%, #1d5a3d 100%);
+}
+
+/* ============================================================
+   TABS — Ooty / Valparai / Coonoor
+   ============================================================ */
+.cb-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 32px auto 0;
+  max-width: 980px;
+  border: 1px solid var(--ch-line, #e6e8f0);
+  border-radius: 18px;
+  padding: 8px;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(26, 45, 109, 0.05);
+}
+.cb-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 14px;
+  border: none;
+  background: transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #5c6480;
+  font-family: inherit;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  text-align: center;
+  min-width: 0;
+}
+.cb-tab > i {
+  font-size: 20px;
+  margin-bottom: 4px;
+  color: var(--ch-peach, #f08967);
+  transition: color 0.2s;
+}
+.cb-tab-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ch-navy, #1a2d6d);
+  letter-spacing: -0.1px;
+  line-height: 1.2;
+}
+.cb-tab-meta {
+  font-size: 12px;
+  font-weight: 500;
+  color: #8087a5;
+  letter-spacing: 0.3px;
+}
+.cb-tab:hover {
+  background: #f6f8fd;
+  color: var(--ch-navy, #1a2d6d);
+}
+.cb-tab.is-active {
+  background: linear-gradient(135deg, #1a2d6d 0%, #243a82 100%);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(26, 45, 109, 0.25);
+}
+.cb-tab.is-active .cb-tab-name { color: #fff; }
+.cb-tab.is-active .cb-tab-meta { color: rgba(255, 255, 255, 0.85); }
+.cb-tab.is-active > i { color: #ffd6c4; }
+
+/* Panels */
+.cb-panel {
+  display: none;
+  margin-top: 36px;
+  animation: cb-fade-in 0.4s ease both;
+}
+.cb-panel.is-active { display: block; }
+
+@keyframes cb-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cb-panel-head {
+  background: linear-gradient(135deg, #fafbff 0%, #fff5ef 100%);
+  border: 1px solid var(--ch-line, #e6e8f0);
+  border-radius: 18px;
+  padding: 28px 32px;
+  margin-bottom: 28px;
+}
+.cb-panel-intro h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ch-navy, #1a2d6d);
+  margin: 0 0 10px;
+  letter-spacing: -0.3px;
+  line-height: 1.25;
+}
+.cb-panel-intro p {
+  font-size: 14.5px;
+  color: var(--ch-ink, #1f2540);
+  line-height: 1.65;
+  margin: 0 0 16px;
+  max-width: 880px;
+}
+.cb-panel-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(26, 45, 109, 0.08);
+}
+.cb-panel-stats span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #4a5170;
+}
+.cb-panel-stats span i {
+  color: var(--ch-peach, #f08967);
+  font-size: 13px;
+}
+.cb-panel-stats strong { color: var(--ch-navy, #1a2d6d); }
+
+.cb-panel-cta {
+  text-align: center;
+  margin-top: 32px;
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+  .cb-tabs {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 6px;
+  }
+  .cb-tab {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 12px 14px;
+  }
+  .cb-tab > i { font-size: 18px; margin-bottom: 0; margin-right: 6px; }
+  .cb-tab-name { font-size: 15px; }
+  .cb-tab-meta { font-size: 11.5px; margin-left: auto; }
+  .cb-panel-head { padding: 22px 20px; }
+  .cb-panel-intro h3 { font-size: 19px; }
+  .cb-panel-stats { gap: 14px; }
+  .cb-panel-stats span { font-size: 12.5px; }
+}
