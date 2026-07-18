@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Phone Display Admin — Madurai Murugan Tours &amp; Travels</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f4f6f8;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      padding: 32px;
+      width: 100%;
+      max-width: 440px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .brand img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .brand .name {
+      font-weight: 700;
+      color: #1a2b49;
+      font-size: 1.05rem;
+      line-height: 1.3;
+    }
+    h1 { font-size: 1.25rem; margin-bottom: 4px; color: #1a2b49; }
+    .subtitle { color: #6b7a90; font-size: 0.9rem; margin-bottom: 24px; }
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 2px solid #e1e6ec;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .option:hover { border-color: #b8c4d4; }
+    .option.selected { border-color: #1a73e8; background: #f0f6ff; }
+    .option input { accent-color: #1a73e8; width: 18px; height: 18px; }
+    .option .label { font-weight: 600; color: #1a2b49; }
+    .option .number { color: #6b7a90; font-size: 0.9rem; }
+    button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 13px;
+      border: none;
+      border-radius: 10px;
+      background: #1a73e8;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: #1557b0; }
+    button:disabled { background: #9db8d8; cursor: not-allowed; }
+    .status {
+      margin-top: 16px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      display: none;
+    }
+    .status.ok { display: block; background: #e6f4ea; color: #1e7e34; }
+    .status.err { display: block; background: #fdecea; color: #c62828; }
+    .loading { color: #6b7a90; font-size: 0.95rem; padding: 20px 0; text-align: center; }
+
+    @media (max-width: 480px) {
+      body { padding: 12px; align-items: flex-start; padding-top: 24px; }
+      .card { padding: 20px 16px; border-radius: 10px; }
+      .brand img { width: 48px; height: 48px; }
+      .brand .name { font-size: 1rem; }
+      h1 { font-size: 1.1rem; }
+      .subtitle { margin-bottom: 18px; }
+      .option { padding: 16px 14px; margin-bottom: 10px; }
+      .option .number { font-size: 0.85rem; }
+      button { padding: 15px; font-size: 1.05rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="brand">
+      <img src="assets/images/logo.png" alt="Madurai Murugan Tours and Travels logo" />
+      <span class="name">Madurai Murugan<br />Tours &amp; Travels</span>
+    </div>
+    <h1>Phone Number Display</h1>
+    <p class="subtitle">Choose which mobile number(s) are shown on all pages of the website.</p>
+
+    <div id="loading" class="loading">Loading current settings…</div>
+
+    <form id="form" style="display:none">
+      <label class="option" id="opt-both">
+        <input type="radio" name="display" value="both" />
+        <span>
+          <span class="label">Both numbers</span><br />
+          <span class="number" id="num-both"></span>
+        </span>
+      </label>
+      <label class="option" id="opt-phone1">
+        <input type="radio" name="display" value="phone1" />
+        <span>
+          <span class="label">Phone 1 only</span><br />
+          <span class="number" id="num-phone1"></span>
+        </span>
+      </label>
+      <label class="option" id="opt-phone2">
+        <input type="radio" name="display" value="phone2" />
+        <span>
+          <span class="label">Phone 2 only</span><br />
+          <span class="number" id="num-phone2"></span>
+        </span>
+      </label>
+      <button type="submit" id="saveBtn">Save</button>
+    </form>
+
+    <div id="status" class="status"></div>
+  </div>
+
+  <script>
+    var CONFIG_URL =
+      'https://maduraimuruganmobilechange-default-rtdb.asia-southeast1.firebasedatabase.app/number/-OxniEDFUylOTOC22JI_.json';
+
+    var config = null;
+
+    function formatPhone(value) {
+      var d = String(value || '').replace(/\D/g, '').slice(-10);
+      if (d.length !== 10) return value || '—';
+      return '+91 ' + d.slice(0, 5) + ' ' + d.slice(5);
+    }
+
+    function setStatus(message, ok) {
+      var el = document.getElementById('status');
+      el.textContent = message;
+      el.className = 'status ' + (ok ? 'ok' : 'err');
+    }
+
+    function refreshSelection() {
+      document.querySelectorAll('.option').forEach(function (opt) {
+        opt.classList.toggle('selected', opt.querySelector('input').checked);
+      });
+    }
+
+    document.querySelectorAll('input[name="display"]').forEach(function (input) {
+      input.addEventListener('change', refreshSelection);
+    });
+
+    fetch(CONFIG_URL)
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        if (!data || !data.phone1 || !data.phone2) throw new Error('Unexpected response');
+        config = data;
+        document.getElementById('num-phone1').textContent = formatPhone(data.phone1);
+        document.getElementById('num-phone2').textContent = formatPhone(data.phone2);
+        document.getElementById('num-both').textContent =
+          formatPhone(data.phone1) + '  /  ' + formatPhone(data.phone2);
+
+        var current = data.display === 'phone1' || data.display === 'phone2' ? data.display : 'both';
+        document.querySelector('input[value="' + current + '"]').checked = true;
+        refreshSelection();
+
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('form').style.display = 'block';
+      })
+      .catch(function (err) {
+        document.getElementById('loading').style.display = 'none';
+        setStatus('Could not load settings: ' + err.message, false);
+      });
+
+    document.getElementById('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var choice = document.querySelector('input[name="display"]:checked');
+      if (!choice || !config) return;
+
+      var btn = document.getElementById('saveBtn');
+      btn.disabled = true;
+      btn.textContent = 'Saving…';
+
+      fetch(CONFIG_URL, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          phone1: config.phone1,
+          phone2: config.phone2,
+          display: choice.value
+        })
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function (data) {
+          config = data;
+          setStatus('Saved. The website now shows: ' +
+            (data.display === 'both' ? 'both numbers' :
+             data.display === 'phone1' ? 'Phone 1 only (' + formatPhone(data.phone1) + ')' :
+             'Phone 2 only (' + formatPhone(data.phone2) + ')'), true);
+        })
+        .catch(function (err) {
+          setStatus('Save failed: ' + err.message, false);
+        })
+        .finally(function () {
+          btn.disabled = false;
+          btn.textContent = 'Save';
+        });
+    });
+  </script>
+</body>
+</html>
