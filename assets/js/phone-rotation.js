@@ -1,4 +1,5 @@
 (function () {
+  // Default order in the HTML is A then B
   var PHONE_A = { raw: '+919994667622', display: '+91 99946 67622' };
   var PHONE_B = { raw: '+919087967622', display: '+91 90879 67622' };
 
@@ -6,21 +7,11 @@
     'https://maduraimuruganmobilechange-default-rtdb.asia-southeast1.firebasedatabase.app/number/-OxniEDFUylOTOC22JI_.json';
   var CONFIG_TIMEOUT_MS = 4000;
 
-  // Flip the order every visit; randomise on first visit
-  var stored = localStorage.getItem('phone_order');
-  var swapped;
-
-  if (stored === null) {
-    swapped = Math.random() < 0.5;
-  } else {
-    swapped = stored === '0'; // last visit was 0 (not swapped) → swap this time
-  }
-  localStorage.setItem('phone_order', swapped ? '1' : '0');
-
-  var primary   = swapped ? PHONE_B : PHONE_A;
-  var secondary = swapped ? PHONE_A : PHONE_B;
-
-  // Single-number mode state; stays null when both numbers are shown
+  // Applied config state; null until the admin setting is loaded.
+  // Both-numbers mode: primary/secondary set, keep/hide null.
+  // Single-number mode: keep/hide set, primary = keep.
+  var primary = null;
+  var secondary = null;
   var keep = null;
   var hide = null;
 
@@ -34,7 +25,13 @@
     return null;
   }
 
-  // ---------- both-numbers mode: rotate order (original behaviour) ----------
+  function swapRaw(str) {
+    return str.replace(/\+919994667622|\+919087967622/g, function (m) {
+      return m === PHONE_A.raw ? primary.raw : secondary.raw;
+    });
+  }
+
+  // ---------- both-numbers mode: apply the admin-chosen order ----------
 
   function swapTextNodes(el) {
     el.childNodes.forEach(function (node) {
@@ -56,14 +53,12 @@
     document.querySelectorAll('a[href]').forEach(function (el) {
       var href = el.getAttribute('href');
       if (href.indexOf(PHONE_A.raw) === -1 && href.indexOf(PHONE_B.raw) === -1) return;
-      el.setAttribute('href', href.replace(/\+919994667622|\+919087967622/g, function (m) {
-        return m === PHONE_A.raw ? primary.raw : secondary.raw;
-      }));
+      el.setAttribute('href', swapRaw(href));
     });
   }
 
-  function applyRotation() {
-    if (!swapped) return; // order A→B is already the default in HTML
+  function applyOrder() {
+    if (primary === PHONE_A) return; // A→B is already the default in HTML
     swapHrefs();
     swapTextNodes(document.body);
   }
@@ -120,10 +115,8 @@
     if (typeof url === 'string' && url.indexOf('wa.me') !== -1) {
       if (keep) {
         url = url.split(hide.raw).join(keep.raw);
-      } else if (swapped) {
-        url = url.replace(/\+919994667622|\+919087967622/g, function (m) {
-          return m === PHONE_A.raw ? primary.raw : secondary.raw;
-        });
+      } else if (primary) {
+        url = swapRaw(url);
       }
     }
     return _origOpen.call(this, url, target, features);
@@ -153,17 +146,27 @@
 
   Promise.all([fetchConfig(), whenDomReady()]).then(function (results) {
     var config = results[0];
-    var chosen = null;
-    if (config && (config.display === 'phone1' || config.display === 'phone2')) {
-      chosen = phoneByDigits(last10Digits(config[config.display]));
+    if (!config) return; // fetch failed → leave the HTML as-is (both numbers)
+
+    var phone1 = phoneByDigits(last10Digits(config.phone1));
+    var phone2 = phoneByDigits(last10Digits(config.phone2));
+
+    if ((config.display === 'phone1' || config.display === 'phone2')) {
+      var chosen = config.display === 'phone1' ? phone1 : phone2;
+      if (chosen) {
+        keep = chosen;
+        primary = chosen;
+        hide = chosen === PHONE_A ? PHONE_B : PHONE_A;
+        applySingle();
+        return;
+      }
     }
-    if (chosen) {
-      keep = chosen;
-      hide = chosen === PHONE_A ? PHONE_B : PHONE_A;
-      applySingle();
-    } else {
-      // "both", missing config, unknown number, or fetch failure → default behaviour
-      applyRotation();
+
+    // Both-numbers modes; legacy "both" and unknown values mean phone1 first
+    if (phone1 && phone2 && phone1 !== phone2) {
+      primary = config.display === 'both_phone2_first' ? phone2 : phone1;
+      secondary = primary === phone1 ? phone2 : phone1;
+      applyOrder();
     }
   });
 })();

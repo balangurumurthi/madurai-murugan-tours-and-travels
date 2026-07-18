@@ -112,11 +112,18 @@
     <div id="loading" class="loading">Loading current settings…</div>
 
     <form id="form" style="display:none">
-      <label class="option" id="opt-both">
-        <input type="radio" name="display" value="both" />
+      <label class="option" id="opt-both12">
+        <input type="radio" name="display" value="both_phone1_first" />
         <span>
-          <span class="label">Both numbers</span><br />
-          <span class="number" id="num-both"></span>
+          <span class="label">Both — Phone 1 first</span><br />
+          <span class="number" id="num-both12"></span>
+        </span>
+      </label>
+      <label class="option" id="opt-both21">
+        <input type="radio" name="display" value="both_phone2_first" />
+        <span>
+          <span class="label">Both — Phone 2 first</span><br />
+          <span class="number" id="num-both21"></span>
         </span>
       </label>
       <label class="option" id="opt-phone1">
@@ -177,10 +184,14 @@
         config = data;
         document.getElementById('num-phone1').textContent = formatPhone(data.phone1);
         document.getElementById('num-phone2').textContent = formatPhone(data.phone2);
-        document.getElementById('num-both').textContent =
+        document.getElementById('num-both12').textContent =
           formatPhone(data.phone1) + '  /  ' + formatPhone(data.phone2);
+        document.getElementById('num-both21').textContent =
+          formatPhone(data.phone2) + '  /  ' + formatPhone(data.phone1);
 
-        var current = data.display === 'phone1' || data.display === 'phone2' ? data.display : 'both';
+        var valid = ['phone1', 'phone2', 'both_phone1_first', 'both_phone2_first'];
+        // Legacy "both" (or anything unknown) maps to phone1-first
+        var current = valid.indexOf(data.display) !== -1 ? data.display : 'both_phone1_first';
         document.querySelector('input[value="' + current + '"]').checked = true;
         refreshSelection();
 
@@ -217,9 +228,11 @@
         .then(function (data) {
           config = data;
           setStatus('Saved. The website now shows: ' +
-            (data.display === 'both' ? 'both numbers' :
-             data.display === 'phone1' ? 'Phone 1 only (' + formatPhone(data.phone1) + ')' :
-             'Phone 2 only (' + formatPhone(data.phone2) + ')'), true);
+            (data.display === 'phone1' ? 'Phone 1 only (' + formatPhone(data.phone1) + ')' :
+             data.display === 'phone2' ? 'Phone 2 only (' + formatPhone(data.phone2) + ')' :
+             data.display === 'both_phone2_first' ?
+               'both numbers, ' + formatPhone(data.phone2) + ' first' :
+               'both numbers, ' + formatPhone(data.phone1) + ' first'), true);
         })
         .catch(function (err) {
           setStatus('Save failed: ' + err.message, false);
