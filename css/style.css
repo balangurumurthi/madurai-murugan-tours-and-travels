@@ -463,6 +463,7 @@ footer h3 {
 .logo-image {
   width: 100px;
   height: 100px;
+  object-fit: contain;
 }
 
 .footer-logo-img {
