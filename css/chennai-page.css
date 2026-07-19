@@ -568,6 +568,21 @@ body.ch-page {
   margin-right: 4px;
   font-size: 10px;
 }
+.ch-package-keywords {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  flex: 1;
+  font-size: 13px;
+  color: var(--ch-muted);
+  line-height: 1.8;
+}
+.ch-package-keywords li::before {
+  content: "\203A";
+  color: var(--ch-peach);
+  font-weight: 700;
+  margin-right: 8px;
+}
 .ch-package-footer {
   display: flex;
   justify-content: space-between;
