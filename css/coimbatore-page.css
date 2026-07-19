@@ -12,11 +12,11 @@
 }
 
 /* ============================================================
-   TABS — Ooty / Valparai / Coonoor
+   TABS — Ooty / Valparai / Coonoor / City & Isha
    ============================================================ */
 .cb-tabs {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   margin: 32px auto 0;
   max-width: 980px;
@@ -135,6 +135,9 @@
 }
 
 /* Responsive */
+@media (max-width: 991px) {
+  .cb-tabs { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 760px) {
   .cb-tabs {
     grid-template-columns: 1fr;
