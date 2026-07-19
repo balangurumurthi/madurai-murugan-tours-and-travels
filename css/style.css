@@ -3,7 +3,7 @@
   --app-secondary-color: #f08261;
   --app-light-color: #f9f9f9;
   --app-white-color: #ffffff;
-  --app-mosgreen-color: #8b8b02;
+  --app-mosgreen-color: #6b6b00;
 }
 
 /* Apply scroll snapping */
@@ -76,7 +76,8 @@ body {
 }
 
 footer p,
-footer h5 {
+footer h5,
+footer h3 {
   color: white;
 }
 
@@ -404,6 +405,8 @@ footer h5 {
 
 /* Button styling */
 .explore-button {
+  display: inline-block;
+  text-decoration: none;
   font-size: 1.2rem;
   color: #fff;
   background-color: #007bff;
@@ -496,7 +499,8 @@ footer h5 {
     font-size: 1.2rem;
   }
 
-  .footer h5 {
+  .footer h5,
+  .footer h3 {
     margin-bottom: 10px;
   }
   .custom-navbar-brand-footer {
@@ -510,7 +514,14 @@ footer h5 {
 
 .bookNowButton {
   color: var(--app-white-color);
-  background-color: var(--app-secondary-color);
+  /* darker shade of --app-secondary-color for WCAG 4.5:1 contrast with white text */
+  background-color: #c24e22;
+}
+
+/* darker than Bootstrap's default green for WCAG 4.5:1 contrast with white text */
+.btn-success {
+  background-color: #1e7e34;
+  border-color: #1e7e34;
 }
 
 .pricing-details {
@@ -636,7 +647,8 @@ footer h5 {
 .card:hover img {
   transform: scale(1.1);
 }
-.card-body h5 {
+.card-body h5,
+.card-body h3.h5 {
   font-size: 1.1rem;
   color: #333;
 }
