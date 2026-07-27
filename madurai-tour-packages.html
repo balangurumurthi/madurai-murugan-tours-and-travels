@@ -355,6 +355,8 @@
         </div>
       </nav>
 
+      <main>
+
       <!-- ============================================================
            HERO
            Page h1 over a taxi illustration, followed by the SEO intro
@@ -661,6 +663,15 @@
           </blockquote>
         </div>
         <script async src="https://www.instagram.com/embed.js"></script>
+        <script>
+          // embed.js injects the post iframes without a title attribute, which
+          // fails the frame-title accessibility audit; label them as they appear.
+          new MutationObserver(function () {
+            document.querySelectorAll('iframe.instagram-media:not([title])').forEach(function (f) {
+              f.setAttribute('title', 'Instagram post from @madurai_murugan_tours_travels');
+            });
+          }).observe(document.body, { childList: true, subtree: true });
+        </script>
       </section>
 
       <section style="max-width: 1240px; margin: 0 auto; padding: 56px 24px 0">
@@ -1382,6 +1393,8 @@
           </div>
         </div>
       </section>
+
+      </main>
 
       <!-- ============================================================
            FOOTER — brand, navigation, address/contact, credit line
