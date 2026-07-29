@@ -98,7 +98,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://maduraimurugantoursandtravels.com/assets/images/logo.png" />
@@ -147,6 +147,21 @@
       .mm-chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; font-size: 14px; background: #ffffff; border: 1px solid rgba(0,0,0,.125); color: #201e1d; cursor: pointer; white-space: nowrap; }
       .mm-chip:hover { background: #eef1f8; border-color: #1a2d6d; }
       .tag { height: auto !important; min-height: 20px; }
+      /* Fleet section is brand-colors only: primary navy + secondary orange, no black/gray text. */
+      #mm-results .tag-neutral { background: #eef1f8; color: #1a2d6d; }
+      #mm-results .tag-accent { background: #f08261; color: #ffffff; }
+      /* Mobile fleet cards (index.html card style) — hidden on desktop, replace the table on mobile */
+      .mm-fleet-cards { display: none; grid-template-columns: 1fr; gap: 20px; max-width: 420px; margin: 0 auto; }
+      .mm-fleet-card { background: #ffffff; border: 1px solid rgba(0,0,0,.125); border-radius: .25rem; overflow: hidden; box-shadow: 0 2px 8px rgba(26,45,109,.08); }
+      .mm-fleet-card img { display: block; width: 100%; height: 200px; object-fit: cover; }
+      .mm-fleet-card .mm-fc-body { padding: 18px; }
+      .mm-fleet-card .mm-fc-name { font-family: Poppins, sans-serif; font-weight: 800; font-size: 20px; color: #1a2d6d; margin: 0 0 4px; }
+      .mm-fleet-card .mm-fc-seats { font-weight: 600; font-size: 14px; color: rgba(26, 45, 109, 0.75); margin: 0 0 14px; }
+      .mm-fleet-card .mm-fc-pricing-label { font-weight: 700; font-size: 15px; color: #1a2d6d; margin: 0 0 8px; }
+      .mm-fleet-card .mm-fc-pricing { background: #eef1f8; border-radius: .25rem; padding: 14px 16px; font-size: 14px; color: #1a2d6d; }
+      .mm-fleet-card .mm-fc-pricing div { display: flex; justify-content: space-between; padding: 3px 0; }
+      .mm-fleet-card .mm-fc-pricing strong { font-weight: 700; }
+      .mm-fleet-card .btn { width: 100%; justify-content: center; display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; }
       .mm-tabs > div span { white-space: nowrap; }
       @media (max-width: 900px) {
         .mm-fields { grid-template-columns: 1fr !important; }
@@ -165,11 +180,9 @@
            widths, leaving an empty card-sized hole — stack them in one
            centered column instead. */
         .mm-cards3 { grid-template-columns: 1fr !important; max-width: 540px; margin-left: auto; margin-right: auto; }
-        .mm-head { display: none !important; }
-        .mm-row { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
-        .mm-row > *:first-child { grid-column: 1 / -1; }
-        .mm-row > *:last-child { grid-column: 1 / -1; }
-        .mm-row .btn { width: 100%; justify-content: center; }
+        /* Swap the tariff table for index.html-style vehicle cards on mobile */
+        #mm-results .mm-list { display: none !important; }
+        .mm-fleet-cards { display: grid !important; }
         /* On mobile the absolutely-positioned h1 would overlap the hero
            illustration — flow it below the image instead. */
         .mm-h1 { position: static !important; font-size: 34px !important; margin-top: 14px !important; }
@@ -382,7 +395,7 @@
           <img src="assets/images/madurai-tour-cover.jpg" alt="Taxi tour illustration — Madurai tour packages" class="mm-hero-img">
           <h1 class="mm-h1" style="position: absolute; left: 0; right: 0; bottom: 18px; text-align: center; line-height: 1; letter-spacing: -.02em; margin: 0; color: #1a2d6d">Madurai Tour Packages</h1>
         </div>
-        <p style="font-size: 17px; max-width: 80ch; margin: 22px auto 26px; color: #444141; text-align: center; text-wrap: pretty">Book a Madurai taxi or a full tour package across Tamil Nadu — Rameshwaram, Trichy &amp; Srirangam, Thanjavur, Kanyakumari, Tirunelveli, Thoothukudi, Thiruchendur, Nagercoil, Sivagangai, Virudhunagar, Dindigul, Karaikudi, Chennai and Tiruvannamalai — and the Kerala circuit of Munnar, Thekkady, Alleppey, Kovalam, Trivandrum, Jatayu, Varkala, Cochin, Wayanad and Vagamon. A/C vehicle with an experienced driver. Compare the whole fleet below with our transparent tariff.</p>
+        <p style="font-size: 16px; max-width: 80ch; margin: 22px auto 26px; color: #444141; text-align: center; text-wrap: pretty">Book a Madurai taxi or a full tour package across Tamil Nadu — Rameshwaram, Trichy &amp; Srirangam, Thanjavur, Kanyakumari, Tirunelveli, Thoothukudi, Thiruchendur, Nagercoil, Sivagangai, Virudhunagar, Dindigul, Karaikudi, Chennai and Tiruvannamalai — and the Kerala circuit of Munnar, Thekkady, Alleppey, Kovalam, Trivandrum, Jatayu, Varkala, Cochin, Wayanad and Vagamon. A/C vehicle with an experienced driver. Compare the whole fleet below with our transparent tariff.</p>
 
       </section>
 
@@ -396,12 +409,12 @@
            page <style>). Book buttons open WhatsApp with a prefilled
            message per vehicle.
            ============================================================ -->
-      <section id="mm-results" style="max-width: 1240px; margin: 0 auto; padding: 48px 24px 0">
+      <section id="mm-results" style="max-width: 1240px; margin: 0 auto; padding: 48px 24px 0; color: #1a2d6d">
         <h2 style="margin: 0 0 4px">Our fleet &amp; standard tariff</h2>
-        <p style="font-size: 14px; color: #605d5d; margin: 0 0 18px">Ranked on fare and comfort. Choose 100 km or 200 km coverage per day — extra kilometres are charged per km. Toll, parking and hill charges extra.</p>
+        <p style="font-size: 16px; color: #1a2d6d; margin: 0 0 18px">Ranked on fare and comfort. Choose 100 km or 200 km coverage per day — extra kilometres are charged per km. Toll, parking and hill charges extra.</p>
 
         <div class="mm-list" style="border: 1px solid rgba(0,0,0,.125); background: #ffffff">
-          <div class="mm-head" style="display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.5fr .9fr 110px; gap: 16px; padding: 10px 18px; background: #f7f8fa; color: #605d5d; border-bottom: 1px solid rgba(0,0,0,.125); font-size: 11px; letter-spacing: .08em; text-transform: uppercase">
+          <div class="mm-head" style="display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.5fr .9fr 110px; gap: 16px; padding: 10px 18px; background: #eef1f8; color: #1a2d6d; border-bottom: 1px solid rgba(0,0,0,.125); font-size: 11px; letter-spacing: .08em; text-transform: uppercase">
             <span>Vehicle</span><span>100 km / day</span><span>200 km / day</span><span>Comfort</span><span>Extra km</span><span></span>
           </div>
 
@@ -409,15 +422,15 @@
             <div style="display: flex; align-items: center; gap: 14px">
               <img src="assets/images/c4.png" alt="Etios or Dzire" style="width: 72px; height: 48px; object-fit: cover; border-radius: .25rem; flex: none">
               <div>
-                <div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 18px">Etios or Dzire</div>
-                <div style="font-size: 13px; color: #605d5d">4+1 seater</div>
+                <div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 18px; color: #1a2d6d">Etios or Dzire</div>
+                <div style="font-size: 14px; color: rgba(26, 45, 109, 0.75)">4+1 seater</div>
               </div>
             </div>
-            <div style="font-size: 14px"><strong>₹3000/day</strong><div style="color: #605d5d; font-size: 13px">100 km included</div></div>
-            <div style="font-size: 14px"><strong>₹4200/day</strong><div style="color: #605d5d; font-size: 13px">200 km included</div></div>
-            <div style="font-size: 14px">A/C sedan<div style="color: #605d5d; font-size: 13px">2 large bags</div><div><span class="tag tag-accent" style="margin-top: 4px">Free airport pickup</span></div></div>
+            <div style="font-size: 15px"><strong>₹3000/day</strong><div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">100 km included</div></div>
+            <div style="font-size: 15px"><strong>₹4200/day</strong><div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">200 km included</div></div>
+            <div style="font-size: 15px">A/C sedan<div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">2 large bags</div><div><span class="tag tag-accent" style="margin-top: 4px">Free airport pickup</span></div></div>
             <div>
-              <div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 20px">₹11/km</div>
+              <div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 20px; color: #1a2d6d">₹11/km</div>
               <span class="tag tag-accent" style="background: #dde3f3; color: #16234f">Cheapest</span>
             </div>
             <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Etios%20or%20Dzire%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa" style="white-space: nowrap"><i class="fa-brands fa-whatsapp"></i>Book</a>
@@ -427,14 +440,14 @@
             <div style="display: flex; align-items: center; gap: 14px">
               <img src="assets/images/ertiga.jpg" alt="Ertiga" style="width: 72px; height: 48px; object-fit: cover; border-radius: .25rem; flex: none">
               <div>
-                <div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 18px">Ertiga</div>
-                <div style="font-size: 13px; color: #605d5d">7+1 seater</div>
+                <div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 18px; color: #1a2d6d">Ertiga</div>
+                <div style="font-size: 14px; color: rgba(26, 45, 109, 0.75)">7+1 seater</div>
               </div>
             </div>
-            <div style="font-size: 14px"><strong>₹3800/day</strong><div style="color: #605d5d; font-size: 13px">100 km included</div></div>
-            <div style="font-size: 14px"><strong>₹5000/day</strong><div style="color: #605d5d; font-size: 13px">200 km included</div></div>
-            <div style="font-size: 14px">A/C MPV<div style="color: #605d5d; font-size: 13px">4 large bags</div><div><span class="tag tag-neutral" style="margin-top: 4px">Compact 7-seater</span></div></div>
-            <div><div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 20px">₹12/km</div></div>
+            <div style="font-size: 15px"><strong>₹3800/day</strong><div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">100 km included</div></div>
+            <div style="font-size: 15px"><strong>₹5000/day</strong><div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">200 km included</div></div>
+            <div style="font-size: 15px">A/C MPV<div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">4 large bags</div><div><span class="tag tag-neutral" style="margin-top: 4px">Compact 7-seater</span></div></div>
+            <div><div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 20px; color: #1a2d6d">₹12/km</div></div>
             <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Ertiga%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa" style="white-space: nowrap"><i class="fa-brands fa-whatsapp"></i>Book</a>
           </div>
 
@@ -442,14 +455,14 @@
             <div style="display: flex; align-items: center; gap: 14px">
               <img src="assets/images/c5.jfif" alt="Innova or Equivalent" style="width: 72px; height: 48px; object-fit: cover; border-radius: .25rem; flex: none">
               <div>
-                <div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 18px">Innova or Equivalent</div>
-                <div style="font-size: 13px; color: #605d5d">7+1 seater</div>
+                <div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 18px; color: #1a2d6d">Innova or Equivalent</div>
+                <div style="font-size: 14px; color: rgba(26, 45, 109, 0.75)">7+1 seater</div>
               </div>
             </div>
-            <div style="font-size: 14px"><strong>₹4000/day</strong><div style="color: #605d5d; font-size: 13px">100 km included</div></div>
-            <div style="font-size: 14px"><strong>₹5500/day</strong><div style="color: #605d5d; font-size: 13px">200 km included</div></div>
-            <div style="font-size: 14px">A/C MPV<div style="color: #605d5d; font-size: 13px">4 large bags</div><div><span class="tag tag-neutral" style="margin-top: 4px">Family favourite</span></div></div>
-            <div><div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 20px">₹13/km</div></div>
+            <div style="font-size: 15px"><strong>₹4000/day</strong><div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">100 km included</div></div>
+            <div style="font-size: 15px"><strong>₹5500/day</strong><div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">200 km included</div></div>
+            <div style="font-size: 15px">A/C MPV<div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">4 large bags</div><div><span class="tag tag-neutral" style="margin-top: 4px">Family favourite</span></div></div>
+            <div><div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 20px; color: #1a2d6d">₹13/km</div></div>
             <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Innova%20or%20Equivalent%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa" style="white-space: nowrap"><i class="fa-brands fa-whatsapp"></i>Book</a>
           </div>
 
@@ -457,14 +470,14 @@
             <div style="display: flex; align-items: center; gap: 14px">
               <img src="assets/images/c6.jpg" alt="Innova Crysta" style="width: 72px; height: 48px; object-fit: cover; border-radius: .25rem; flex: none">
               <div>
-                <div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 18px">Innova Crysta</div>
-                <div style="font-size: 13px; color: #605d5d">7+1 seater</div>
+                <div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 18px; color: #1a2d6d">Innova Crysta</div>
+                <div style="font-size: 14px; color: rgba(26, 45, 109, 0.75)">7+1 seater</div>
               </div>
             </div>
-            <div style="font-size: 14px"><strong>₹4700/day</strong><div style="color: #605d5d; font-size: 13px">100 km included</div></div>
-            <div style="font-size: 14px"><strong>₹6500/day</strong><div style="color: #605d5d; font-size: 13px">200 km included</div></div>
-            <div style="font-size: 14px">A/C premium MPV<div style="color: #605d5d; font-size: 13px">4 large bags</div><div><span class="tag tag-outline" style="margin-top: 4px">Extra legroom</span></div></div>
-            <div><div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 20px">₹16/km</div></div>
+            <div style="font-size: 15px"><strong>₹4700/day</strong><div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">100 km included</div></div>
+            <div style="font-size: 15px"><strong>₹6500/day</strong><div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">200 km included</div></div>
+            <div style="font-size: 15px">A/C premium MPV<div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">4 large bags</div><div><span class="tag tag-outline" style="margin-top: 4px">Extra legroom</span></div></div>
+            <div><div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 20px; color: #1a2d6d">₹16/km</div></div>
             <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Innova%20Crysta%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa" style="white-space: nowrap"><i class="fa-brands fa-whatsapp"></i>Book</a>
           </div>
 
@@ -472,14 +485,14 @@
             <div style="display: flex; align-items: center; gap: 14px">
               <img src="assets/images/c3.png" alt="Innova Hycross" style="width: 72px; height: 48px; object-fit: cover; border-radius: .25rem; flex: none">
               <div>
-                <div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 18px">Innova Hycross</div>
-                <div style="font-size: 13px; color: #605d5d">7+1 seater</div>
+                <div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 18px; color: #1a2d6d">Innova Hycross</div>
+                <div style="font-size: 14px; color: rgba(26, 45, 109, 0.75)">7+1 seater</div>
               </div>
             </div>
-            <div style="font-size: 14px"><strong>₹5500/day</strong><div style="color: #605d5d; font-size: 13px">100 km included</div></div>
-            <div style="font-size: 14px"><strong>₹7500/day</strong><div style="color: #605d5d; font-size: 13px">200 km included</div></div>
-            <div style="font-size: 14px">A/C hybrid MPV<div style="color: #605d5d; font-size: 13px">4 large bags</div><div><span class="tag tag-outline" style="margin-top: 4px">Quietest ride</span></div></div>
-            <div><div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 20px">₹20/km</div></div>
+            <div style="font-size: 15px"><strong>₹5500/day</strong><div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">100 km included</div></div>
+            <div style="font-size: 15px"><strong>₹7500/day</strong><div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">200 km included</div></div>
+            <div style="font-size: 15px">A/C hybrid MPV<div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">4 large bags</div><div><span class="tag tag-outline" style="margin-top: 4px">Quietest ride</span></div></div>
+            <div><div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 20px; color: #1a2d6d">₹20/km</div></div>
             <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Innova%20Hycross%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa" style="white-space: nowrap"><i class="fa-brands fa-whatsapp"></i>Book</a>
           </div>
 
@@ -487,14 +500,14 @@
             <div style="display: flex; align-items: center; gap: 14px">
               <img src="assets/images/c2.png" alt="Tempo Traveller A/C 12 seater" style="width: 72px; height: 48px; object-fit: cover; border-radius: .25rem; flex: none">
               <div>
-                <div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 18px">Tempo Traveller A/C</div>
-                <div style="font-size: 13px; color: #605d5d">12+1 seater</div>
+                <div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 18px; color: #1a2d6d">Tempo Traveller A/C</div>
+                <div style="font-size: 14px; color: rgba(26, 45, 109, 0.75)">12+1 seater</div>
               </div>
             </div>
-            <div style="font-size: 14px"><strong>₹5000/day</strong><div style="color: #605d5d; font-size: 13px">100 km included</div></div>
-            <div style="font-size: 14px"><strong>₹7200/day</strong><div style="color: #605d5d; font-size: 13px">200 km included</div></div>
-            <div style="font-size: 14px">A/C mini coach<div style="color: #605d5d; font-size: 13px">10 large bags</div><div><span class="tag tag-neutral" style="margin-top: 4px">Group darshan</span></div></div>
-            <div><div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 20px">₹19/km</div></div>
+            <div style="font-size: 15px"><strong>₹5000/day</strong><div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">100 km included</div></div>
+            <div style="font-size: 15px"><strong>₹7200/day</strong><div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">200 km included</div></div>
+            <div style="font-size: 15px">A/C mini coach<div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">10 large bags</div><div><span class="tag tag-neutral" style="margin-top: 4px">Group darshan</span></div></div>
+            <div><div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 20px; color: #1a2d6d">₹19/km</div></div>
             <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%2012%20seater%20Tempo%20Traveller%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa" style="white-space: nowrap"><i class="fa-brands fa-whatsapp"></i>Book</a>
           </div>
 
@@ -502,77 +515,170 @@
             <div style="display: flex; align-items: center; gap: 14px">
               <img src="assets/images/force-urbania.jpg" alt="Force Urbania A/C 18 seater" style="width: 72px; height: 48px; object-fit: cover; border-radius: .25rem; flex: none">
               <div>
-                <div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 18px">Force Urbania A/C</div>
-                <div style="font-size: 13px; color: #605d5d">18+1 seater</div>
+                <div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 18px; color: #1a2d6d">Force Urbania A/C</div>
+                <div style="font-size: 14px; color: rgba(26, 45, 109, 0.75)">18+1 seater</div>
               </div>
             </div>
-            <div style="font-size: 14px"><strong>On request</strong><div style="color: #605d5d; font-size: 13px">100 km included</div></div>
-            <div style="font-size: 14px"><strong>On request</strong><div style="color: #605d5d; font-size: 13px">200 km included</div></div>
-            <div style="font-size: 14px">A/C luxury van<div style="color: #605d5d; font-size: 13px">16 large bags</div><div><span class="tag tag-neutral" style="margin-top: 4px">Largest</span></div></div>
-            <div><div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 20px">Ask us</div></div>
+            <div style="font-size: 15px"><strong>On request</strong><div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">100 km included</div></div>
+            <div style="font-size: 15px"><strong>On request</strong><div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">200 km included</div></div>
+            <div style="font-size: 15px">A/C luxury van<div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">16 large bags</div><div><span class="tag tag-neutral" style="margin-top: 4px">Largest</span></div></div>
+            <div><div style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 20px; color: #1a2d6d">Ask us</div></div>
             <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Force%20Urbania%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa" style="white-space: nowrap"><i class="fa-brands fa-whatsapp"></i>Book</a>
           </div>
         </div>
-        <p style="font-size: 12px; color: #605d5d; margin: 12px 0 0">Rates are from our published tariff. Toll, parking and hill charges are extra. Send us your route on WhatsApp and we confirm the exact total before you pay anything.</p>
+
+        <!-- Mobile-only fleet cards (index.html card style, tour-packages tariff) -->
+        <div class="mm-fleet-cards">
+          <div class="mm-fleet-card">
+            <img src="assets/images/c4.png" alt="Etios or Dzire" />
+            <div class="mm-fc-body">
+              <h3 class="mm-fc-name">Etios or Dzire</h3>
+              <p class="mm-fc-seats">Seat Capacity: 4+1</p>
+              <p class="mm-fc-pricing-label">Pricing</p>
+              <div class="mm-fc-pricing">
+                <div><strong>100 km / day</strong><span>₹3000/day</span></div>
+                <div><strong>200 km / day</strong><span>₹4200/day</span></div>
+                <div><strong>Extra km</strong><span>₹11/km</span></div>
+              </div>
+              <div style="margin-top: 10px"><span class="tag tag-accent">Free airport pickup</span> <span class="tag" style="background: #dde3f3; color: #16234f">Cheapest</span></div>
+              <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Etios%20or%20Dzire%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa"><i class="fa-brands fa-whatsapp"></i>Book Now</a>
+            </div>
+          </div>
+          <div class="mm-fleet-card">
+            <img src="assets/images/ertiga.jpg" alt="Ertiga" />
+            <div class="mm-fc-body">
+              <h3 class="mm-fc-name">Ertiga</h3>
+              <p class="mm-fc-seats">Seat Capacity: 7+1</p>
+              <p class="mm-fc-pricing-label">Pricing</p>
+              <div class="mm-fc-pricing">
+                <div><strong>100 km / day</strong><span>₹3800/day</span></div>
+                <div><strong>200 km / day</strong><span>₹5000/day</span></div>
+                <div><strong>Extra km</strong><span>₹12/km</span></div>
+              </div>
+              <div style="margin-top: 10px"><span class="tag tag-neutral">Compact 7-seater</span></div>
+              <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Ertiga%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa"><i class="fa-brands fa-whatsapp"></i>Book Now</a>
+            </div>
+          </div>
+          <div class="mm-fleet-card">
+            <img src="assets/images/c5.jfif" alt="Innova or Equivalent" />
+            <div class="mm-fc-body">
+              <h3 class="mm-fc-name">Innova or Equivalent</h3>
+              <p class="mm-fc-seats">Seat Capacity: 7+1</p>
+              <p class="mm-fc-pricing-label">Pricing</p>
+              <div class="mm-fc-pricing">
+                <div><strong>100 km / day</strong><span>₹4000/day</span></div>
+                <div><strong>200 km / day</strong><span>₹5500/day</span></div>
+                <div><strong>Extra km</strong><span>₹13/km</span></div>
+              </div>
+              <div style="margin-top: 10px"><span class="tag tag-neutral">Family favourite</span></div>
+              <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Innova%20or%20Equivalent%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa"><i class="fa-brands fa-whatsapp"></i>Book Now</a>
+            </div>
+          </div>
+          <div class="mm-fleet-card">
+            <img src="assets/images/c6.jpg" alt="Innova Crysta" />
+            <div class="mm-fc-body">
+              <h3 class="mm-fc-name">Innova Crysta</h3>
+              <p class="mm-fc-seats">Seat Capacity: 7+1</p>
+              <p class="mm-fc-pricing-label">Pricing</p>
+              <div class="mm-fc-pricing">
+                <div><strong>100 km / day</strong><span>₹4700/day</span></div>
+                <div><strong>200 km / day</strong><span>₹6500/day</span></div>
+                <div><strong>Extra km</strong><span>₹16/km</span></div>
+              </div>
+              <div style="margin-top: 10px"><span class="tag tag-outline">Extra legroom</span></div>
+              <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Innova%20Crysta%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa"><i class="fa-brands fa-whatsapp"></i>Book Now</a>
+            </div>
+          </div>
+          <div class="mm-fleet-card">
+            <img src="assets/images/c3.png" alt="Innova Hycross" />
+            <div class="mm-fc-body">
+              <h3 class="mm-fc-name">Innova Hycross</h3>
+              <p class="mm-fc-seats">Seat Capacity: 7+1</p>
+              <p class="mm-fc-pricing-label">Pricing</p>
+              <div class="mm-fc-pricing">
+                <div><strong>100 km / day</strong><span>₹5500/day</span></div>
+                <div><strong>200 km / day</strong><span>₹7500/day</span></div>
+                <div><strong>Extra km</strong><span>₹20/km</span></div>
+              </div>
+              <div style="margin-top: 10px"><span class="tag tag-outline">Quietest ride</span></div>
+              <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Innova%20Hycross%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa"><i class="fa-brands fa-whatsapp"></i>Book Now</a>
+            </div>
+          </div>
+          <div class="mm-fleet-card">
+            <img src="assets/images/c2.png" alt="Tempo Traveller A/C 12 seater" />
+            <div class="mm-fc-body">
+              <h3 class="mm-fc-name">Tempo Traveller A/C</h3>
+              <p class="mm-fc-seats">Seat Capacity: 12+1</p>
+              <p class="mm-fc-pricing-label">Pricing</p>
+              <div class="mm-fc-pricing">
+                <div><strong>100 km / day</strong><span>₹5000/day</span></div>
+                <div><strong>200 km / day</strong><span>₹7200/day</span></div>
+                <div><strong>Extra km</strong><span>₹19/km</span></div>
+              </div>
+              <div style="margin-top: 10px"><span class="tag tag-neutral">Group darshan</span></div>
+              <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%2012%20seater%20Tempo%20Traveller%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa"><i class="fa-brands fa-whatsapp"></i>Book Now</a>
+            </div>
+          </div>
+          <div class="mm-fleet-card">
+            <img src="assets/images/force-urbania.jpg" alt="Force Urbania A/C 18 seater" />
+            <div class="mm-fc-body">
+              <h3 class="mm-fc-name">Force Urbania A/C</h3>
+              <p class="mm-fc-seats">Seat Capacity: 18+1</p>
+              <p class="mm-fc-pricing-label">Pricing</p>
+              <div class="mm-fc-pricing">
+                <div><strong>100 km / day</strong><span>On request</span></div>
+                <div><strong>200 km / day</strong><span>On request</span></div>
+                <div><strong>Extra km</strong><span>Ask us</span></div>
+              </div>
+              <div style="margin-top: 10px"><span class="tag tag-neutral">Largest</span></div>
+              <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Force%20Urbania%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa"><i class="fa-brands fa-whatsapp"></i>Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size: 12px; color: rgba(26, 45, 109, 0.75); margin: 12px 0 0">Rates are from our published tariff. Toll, parking and hill charges are extra. Send us your route on WhatsApp and we confirm the exact total before you pay anything.</p>
       </section>
 
       <section style="max-width: 1240px; margin: 0 auto; padding: 56px 24px 0">
         <hr class="hr" style="margin: 0 0 24px">
         <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 24px">
           <div>
-            <!-- HOTELS & STAY — sample partner-hotel cards (Madurai / Rameswaram); rates are indicative, quoted live on WhatsApp -->
+            <!-- HOTELS & STAY — we don't list hotel names or rates (they change with season); we describe what every package can include -->
             <p style="font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #1a2d6d; margin: 0 0 8px">Hotels &amp; stay</p>
-            <h2 style="margin: 0; max-width: 32ch">Book hotels in Madurai &amp; Rameswaram with your tour package and save.</h2>
+            <h2 style="margin: 0; max-width: 36ch">Tour packages with hotel stay — car, room and food in one plan.</h2>
+            <p style="font-size: 16px; color: #1a2d6d; margin: 8px 0 0; max-width: 70ch">We arrange hotel accommodation along with your cab, so you book your whole trip in one place. We have direct tie-ups with 3-star and 5-star hotels in Madurai, Rameswaram and across Tamil Nadu — that means a better room rate than online booking sites.</p>
           </div>
         </div>
 
-        <div class="mm-cards3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
-          <div class="card elev-sm" style="padding: 0">
-            <div><img src="assets/images/madurai.jpg" alt="Hotel near Meenakshi Amman Temple, Madurai" style="height: 190px; width: 100%; object-fit: cover"></div>
-            <div style="padding: 18px">
-              <p class="card-kicker" style="margin: 0 0 6px">3-star · Madurai</p>
-              <h3 class="h5" style="margin: 0 0 8px">Hotel Meenakshi Residency</h3>
-              <p style="font-size: 13px; color: #444141; margin: 0 0 14px">Walking distance from the temple's east tower. A/C rooms, hot water, veg breakfast included.</p>
-              <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px">
-                <span style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 22px">₹1,650</span>
-                <span style="font-size: 13px; color: #605d5d; text-decoration: line-through">₹2,100</span>
-                <span class="tag tag-accent" style="background: #dde3f3; color: #16234f">With package</span>
-              </div>
-              <p style="font-size: 12px; color: #605d5d; margin: 0">per night, double occupancy</p>
-            </div>
+        <div class="mm-cards3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+          <div class="card elev-sm" style="padding: 22px">
+            <div style="width: 44px; height: 44px; border-radius: .25rem; background: #eef1f8; color: #1a2d6d; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px"><i class="fa-solid fa-bed"></i></div>
+            <h3 class="h5" style="margin: 0 0 8px; color: #1a2d6d">Hotel stay with free breakfast</h3>
+            <p style="font-size: 14px; color: #444141; margin: 0">Clean A/C rooms for your family, with complimentary breakfast included. We book the hotel, you just check in.</p>
           </div>
 
-          <div class="card elev-sm" style="padding: 0">
-            <div><img src="assets/images/rameswaram.jpg" alt="Hotel near Ramanathaswamy Temple, Rameswaram" style="height: 190px; width: 100%; object-fit: cover"></div>
-            <div style="padding: 18px">
-              <p class="card-kicker" style="margin: 0 0 6px">3-star · Rameswaram</p>
-              <h3 class="h5" style="margin: 0 0 8px">KNP Nest Rameswaram</h3>
-              <p style="font-size: 13px; color: #444141; margin: 0 0 14px">400 m from Agniteertham. Early check-in for 5 AM darshan, secure parking for your vehicle.</p>
-              <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px">
-                <span style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 22px">₹1,900</span>
-                <span style="font-size: 13px; color: #605d5d; text-decoration: line-through">₹2,500</span>
-                <span class="tag tag-accent" style="background: #dde3f3; color: #16234f">With package</span>
-              </div>
-              <p style="font-size: 12px; color: #605d5d; margin: 0">per night, double occupancy</p>
-            </div>
+          <div class="card elev-sm" style="padding: 22px">
+            <div style="width: 44px; height: 44px; border-radius: .25rem; background: #eef1f8; color: #1a2d6d; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px"><i class="fa-solid fa-star"></i></div>
+            <h3 class="h5" style="margin: 0 0 8px; color: #1a2d6d">3-star &amp; 5-star hotel tie-ups</h3>
+            <p style="font-size: 14px; color: #444141; margin: 0">Direct tie-ups with 3-star and 5-star hotels give you a better rate than online booking sites. Pick the comfort level that suits your budget.</p>
           </div>
 
-          <div class="card elev-sm" style="padding: 0">
-            <div><img src="assets/images/to3.jpg" alt="Five star resort stay" style="height: 190px; width: 100%; object-fit: cover"></div>
-            <div style="padding: 18px">
-              <p class="card-kicker" style="margin: 0 0 6px">5-star · Madurai</p>
-              <h3 class="h5" style="margin: 0 0 8px">The Residency Grand</h3>
-              <p style="font-size: 13px; color: #444141; margin: 0 0 14px">Pool, rooftop restaurant and airport transfer. The pick for a family celebration trip.</p>
-              <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px">
-                <span style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 22px">₹5,400</span>
-                <span style="font-size: 13px; color: #605d5d; text-decoration: line-through">₹7,200</span>
-                <span class="tag tag-accent" style="background: #dde3f3; color: #16234f">With package</span>
-              </div>
-              <p style="font-size: 12px; color: #605d5d; margin: 0">per night, double occupancy</p>
-            </div>
+          <div class="card elev-sm" style="padding: 22px">
+            <div style="width: 44px; height: 44px; border-radius: .25rem; background: #eef1f8; color: #1a2d6d; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px"><i class="fa-solid fa-utensils"></i></div>
+            <h3 class="h5" style="margin: 0 0 8px; color: #1a2d6d">Car + hotel + food package</h3>
+            <p style="font-size: 14px; color: #444141; margin: 0">One simple plan that covers your cab, hotel room and meals for the full trip. Tell us your route and number of days — we take care of the rest.</p>
+          </div>
+
+          <div class="card elev-sm" style="padding: 22px">
+            <div style="width: 44px; height: 44px; border-radius: .25rem; background: #eef1f8; color: #1a2d6d; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px"><i class="fa-solid fa-users"></i></div>
+            <h3 class="h5" style="margin: 0 0 8px; color: #1a2d6d">Group tour packages</h3>
+            <p style="font-size: 14px; color: #444141; margin: 0">Travelling with a big group? Take a Tempo Traveller or Force Urbania group tour package with rooms and food arranged for everyone.</p>
           </div>
         </div>
-        <p style="font-size: 12px; color: #605d5d; margin: 14px 0 0">Sample rates for layout — send us your dates and we quote the live partner rate.</p>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin: 18px 0 0">
+          <a href="https://wa.me/+919994667622?text=I%20want%20a%20tour%20package%20with%20hotel%20stay.%20Please%20share%20the%20best%20rate." target="_blank" rel="noopener" class="btn mm-wa"><i class="fa-brands fa-whatsapp"></i> Get hotel + tour quote</a>
+          <p style="font-size: 12px; color: #444141; margin: 0">Hotel rates change with season and dates, so send us your travel dates on WhatsApp and we will share the best current price.</p>
+        </div>
       </section>
 
       <section style="max-width: 1240px; margin: 0 auto; padding: 56px 24px 0">
@@ -587,7 +693,7 @@
             <span style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 32px; line-height: 1">4.9</span>
             <div>
               <div style="color: #1a2d6d; letter-spacing: 2px">★★★★★</div>
-              <div style="font-size: 12px; color: #605d5d">180+ reviews on Google</div>
+              <div style="font-size: 12px; color: #4a4845">180+ reviews on Google</div>
             </div>
             <a href="https://www.google.com/maps/place/Murugan+Travels" target="_blank" rel="noopener" class="btn btn-secondary">Read all</a>
           </div>
