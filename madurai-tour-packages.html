@@ -180,10 +180,10 @@
       }
       @media (max-width: 1080px) {
         .mm-hero-img { height: 260px; aspect-ratio: auto; object-position: 60% bottom; }
-        /* 3-item card grids (hotels, Instagram) would wrap 2+1 at tablet
-           widths, leaving an empty card-sized hole — stack them in one
-           centered column instead. */
-        .mm-cards3 { grid-template-columns: 1fr !important; max-width: 540px; margin-left: auto; margin-right: auto; }
+        /* Card grids (hotels, Instagram): fit as many ~280px columns as
+           the width allows so tablets / zoomed-out phones don't get a
+           single narrow column with whitespace on both sides. */
+        .mm-cards3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; max-width: 880px; margin-left: auto; margin-right: auto; }
         /* Swap the tariff table for index.html-style vehicle cards on mobile */
         #mm-results .mm-list { display: none !important; }
         .mm-fleet-cards { display: grid !important; }
