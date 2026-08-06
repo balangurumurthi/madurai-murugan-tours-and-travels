@@ -155,7 +155,7 @@
       #mm-results .tag-neutral { background: #eef1f8; color: #1a2d6d; }
       #mm-results .tag-accent { background: #f08261; color: #ffffff; }
       /* Mobile fleet cards (index.html card style) — hidden on desktop, replace the table on mobile */
-      .mm-fleet-cards { display: none; grid-template-columns: 1fr; gap: 20px; max-width: 420px; margin: 0 auto; }
+      .mm-fleet-cards { display: none; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 880px; margin: 0 auto; }
       .mm-fleet-card { background: #ffffff; border: 1px solid rgba(0,0,0,.125); border-radius: .25rem; overflow: hidden; box-shadow: 0 2px 8px rgba(26,45,109,.08); }
       .mm-fleet-card img { display: block; width: 100%; height: 200px; object-fit: cover; }
       .mm-fleet-card .mm-fc-body { padding: 18px; }
@@ -414,8 +414,8 @@
            message per vehicle.
            ============================================================ -->
       <section id="mm-results" style="max-width: 1240px; margin: 0 auto; padding: 48px 24px 0; color: #1a2d6d">
-        <h2 style="margin: 0 0 4px">Our fleet &amp; standard tariff</h2>
-        <p style="font-size: 16px; color: #1a2d6d; margin: 0 0 18px">Ranked on fare and comfort. Choose 100 km or 200 km coverage per day — extra kilometres are charged per km. Toll, parking and hill charges extra.</p>
+        <h2 style="margin: 0 0 4px; text-align: center">Our fleet &amp; standard tariff</h2>
+        <p style="font-size: 16px; color: #1a2d6d; margin: 0 0 18px; text-align: center">Ranked on fare and comfort. Choose 100 km or 200 km coverage per day — extra kilometres are charged per km. Toll, parking and hill charges extra.</p>
 
         <div class="mm-list" style="border: 1px solid rgba(0,0,0,.125); background: #ffffff">
           <div class="mm-head" style="display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.5fr .9fr 110px; gap: 16px; padding: 10px 18px; background: #eef1f8; color: #1a2d6d; border-bottom: 1px solid rgba(0,0,0,.125); font-size: 11px; letter-spacing: .08em; text-transform: uppercase">
@@ -645,13 +645,10 @@
 
       <section style="max-width: 1240px; margin: 0 auto; padding: 56px 24px 0">
         <hr class="hr" style="margin: 0 0 24px">
-        <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 24px">
-          <div>
-            <!-- HOTELS & STAY — we don't list hotel names or rates (they change with season); we describe what every package can include -->
-            <p style="font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #1a2d6d; margin: 0 0 8px">Hotels &amp; stay</p>
-            <h2 style="margin: 0; max-width: 36ch">Tour packages with hotel stay — car, room and food in one plan.</h2>
-            <p style="font-size: 16px; color: #1a2d6d; margin: 8px 0 0; max-width: 70ch">We arrange hotel accommodation along with your cab, so you book your whole trip in one place. We have direct tie-ups with 3-star and 5-star hotels in Madurai, Rameswaram and across Tamil Nadu — that means a better room rate than online booking sites.</p>
-          </div>
+        <div style="text-align: center; margin-bottom: 24px">
+          <!-- HOTELS & STAY — we don't list hotel names or rates (they change with season); we describe what every package can include -->
+          <h2 style="margin: 0 auto; max-width: 36ch">Tour packages with hotel stay — car, room and food in one plan.</h2>
+          <p style="font-size: 16px; color: #1a2d6d; margin: 8px auto 0; max-width: 70ch">We arrange hotel accommodation along with your cab, so you book your whole trip in one place. We have direct tie-ups with 3-star and 5-star hotels in Madurai, Rameswaram and across Tamil Nadu — that means a better room rate than online booking sites.</p>
         </div>
 
         <div class="mm-cards3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
@@ -687,20 +684,9 @@
 
       <section style="max-width: 1240px; margin: 0 auto; padding: 56px 24px 0">
         <hr class="hr" style="margin: 0 0 24px">
-        <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 24px">
-          <div>
-            <!-- GOOGLE REVIEWS — static quotes from real Google Maps reviews + overall rating badge -->
-            <p style="font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #1a2d6d; margin: 0 0 8px">Google reviews</p>
-            <h2 style="margin: 0">What our customers say</h2>
-          </div>
-          <div style="display: flex; align-items: center; gap: 14px; border: 1px solid rgba(0,0,0,.125); padding: 12px 16px">
-            <span style="font-family: Poppins, sans-serif; font-weight: 800; font-size: 32px; line-height: 1">4.9</span>
-            <div>
-              <div style="color: #1a2d6d; letter-spacing: 2px">★★★★★</div>
-              <div style="font-size: 12px; color: #4a4845">180+ reviews on Google</div>
-            </div>
-            <a href="https://www.google.com/maps/place/Murugan+Travels" target="_blank" rel="noopener" class="btn btn-secondary">Read all</a>
-          </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; margin-bottom: 24px; text-align: center">
+          <!-- GOOGLE REVIEWS — static quotes from real Google Maps reviews + overall rating badge -->
+          <h2 style="margin: 0">What our customers say</h2>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
@@ -751,50 +737,22 @@
 
       <section style="max-width: 1240px; margin: 0 auto; padding: 56px 24px 0">
         <hr class="hr" style="margin: 0 0 24px">
-        <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 24px">
-          <div>
-            <!-- INSTAGRAM — live post embeds; blockquotes are upgraded to rendered cards by instagram.com/embed.js (loaded at the end of this section) -->
-            <p style="font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #1a2d6d; margin: 0 0 8px">Instagram</p>
-            <h2 style="margin: 0; overflow-wrap: anywhere">@madurai_murugan_tours_travels</h2>
-          </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; margin-bottom: 24px; text-align: center">
+          <!-- INSTAGRAM — static post images; each links to the profile -->
+          <h2 style="margin: 0">Instagram</h2>
           <a href="https://www.instagram.com/madurai_murugan_tours_travels" target="_blank" rel="noopener" class="btn btn-secondary"><i class="fa-brands fa-instagram"></i>Follow on Instagram</a>
         </div>
         <div class="mm-cards3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: start">
-          <blockquote class="instagram-media" data-instgrm-captioned
-            data-instgrm-permalink="https://www.instagram.com/p/Da9bSOGAc49/?utm_source=ig_embed&amp;utm_campaign=loading"
-            data-instgrm-version="14"
-            style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;">
-            <a href="https://www.instagram.com/p/Da9bSOGAc49/?utm_source=ig_embed" target="_blank" rel="noopener" style="background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;">
-              View this post on Instagram
-            </a>
-          </blockquote>
-          <blockquote class="instagram-media" data-instgrm-captioned
-            data-instgrm-permalink="https://www.instagram.com/p/DIfzE_-B0Kc/?utm_source=ig_embed&amp;utm_campaign=loading"
-            data-instgrm-version="14"
-            style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;">
-            <a href="https://www.instagram.com/p/DIfzE_-B0Kc/?utm_source=ig_embed" target="_blank" rel="noopener" style="background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;">
-              View this post on Instagram
-            </a>
-          </blockquote>
-          <blockquote class="instagram-media" data-instgrm-captioned
-            data-instgrm-permalink="https://www.instagram.com/p/DYEg_scAbgP/?utm_source=ig_embed&amp;utm_campaign=loading"
-            data-instgrm-version="14"
-            style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 0; max-width:540px; min-width:280px; padding:0; width:100%;">
-            <a href="https://www.instagram.com/p/DYEg_scAbgP/?utm_source=ig_embed" target="_blank" rel="noopener" style="background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;">
-              View this post on Instagram
-            </a>
-          </blockquote>
+          <a href="https://www.instagram.com/madurai_murugan_tours_travels" target="_blank" rel="noopener" class="mm-ig" style="display: block">
+            <img src="assets/images/insta1.jpg" alt="Instagram post from @madurai_murugan_tours_travels" style="width: 100%; height: auto; aspect-ratio: 524 / 782; object-fit: cover" loading="lazy">
+          </a>
+          <a href="https://www.instagram.com/madurai_murugan_tours_travels" target="_blank" rel="noopener" class="mm-ig" style="display: block">
+            <img src="assets/images/insta2.jpg" alt="Instagram post from @madurai_murugan_tours_travels" style="width: 100%; height: auto; aspect-ratio: 524 / 782; object-fit: cover" loading="lazy">
+          </a>
+          <a href="https://www.instagram.com/madurai_murugan_tours_travels" target="_blank" rel="noopener" class="mm-ig" style="display: block">
+            <img src="assets/images/insta3.jpg" alt="Instagram post from @madurai_murugan_tours_travels" style="width: 100%; height: auto; aspect-ratio: 524 / 782; object-fit: cover" loading="lazy">
+          </a>
         </div>
-        <script async src="https://www.instagram.com/embed.js"></script>
-        <script>
-          // embed.js injects the post iframes without a title attribute, which
-          // fails the frame-title accessibility audit; label them as they appear.
-          new MutationObserver(function () {
-            document.querySelectorAll('iframe.instagram-media:not([title])').forEach(function (f) {
-              f.setAttribute('title', 'Instagram post from @madurai_murugan_tours_travels');
-            });
-          }).observe(document.body, { childList: true, subtree: true });
-        </script>
       </section>
 
       <section style="max-width: 1240px; margin: 0 auto; padding: 56px 24px 0">
@@ -853,8 +811,7 @@
            ============================================================ -->
       <section style="margin-top: 64px; background: #1a2d6d; color: #ffffff; padding: 56px 24px">
         <div style="max-width: 1240px; margin: 0 auto">
-          <p style="font-size: 11px; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 8px; opacity: .8">Popular routes</p>
-          <h2 style="margin: 0 0 28px; color: #ffffff; max-width: 30ch">Madurai taxi routes people book every week.</h2>
+          <h2 style="margin: 0 0 28px; color: #ffffff; text-align: center">Popular routes</h2>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px">
             <div class="mm-routes-card" style="border: 1px solid rgba(243,242,242,.45); padding: 18px">
               <div style="display: flex; flex-direction: column; gap: 8px; font-size: 14px">
@@ -1456,8 +1413,7 @@
            #mm-contact is the navbar "Contact" anchor target.
            ============================================================ -->
       <section id="mm-contact" style="max-width: 1240px; margin: 0 auto; padding: 56px 24px 0">
-        <p style="font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #1a2d6d; margin: 0 0 8px">Locate us</p>
-        <h2 style="margin: 0 0 20px">No. 63, Madakulam Main Road, Madurai</h2>
+        <h2 style="margin: 0 0 20px; text-align: center">Locate us</h2>
         <div style="border: 2px solid rgba(0,0,0,.125)">
           <iframe title="Madurai Murugan Tours and Travels location on Google Maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15721.162216345647!2d78.09729180298604!3d9.909741280043564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00cf000a69da3d%3A0x71cbfc857b284ebb!2sMurugan%20Travels!5e0!3m2!1sen!2sin!4v1730793289903!5m2!1sen!2sin" width="100%" height="420" style="border: 0; display: block; user-select: none" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
@@ -1472,7 +1428,6 @@
       <section style="max-width: 1240px; margin: 0 auto; padding: 56px 24px 72px">
         <hr class="hr" style="margin: 0 0 24px">
         <div style="text-align: center; margin: 0 0 28px">
-          <p style="font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #1a2d6d; margin: 0 0 8px">WhatsApp enquiry</p>
           <h2 style="margin: 0 0 12px">Book your travel</h2>
           <p style="font-size: 15px; color: #444141; margin: 0 auto 18px; max-width: 60ch">Fill this in and it opens WhatsApp with your trip details already typed. We reply with the exact fare, usually within minutes.</p>
           <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; font-size: 14px">
