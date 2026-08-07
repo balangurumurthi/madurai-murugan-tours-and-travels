@@ -173,7 +173,8 @@
       .mm-fleet-card .mm-fc-pricing > div + div { border-top: 1px solid rgba(0,0,0,.06); }
       .mm-fleet-card .mm-fc-p-label { display: inline-flex; align-items: center; gap: 10px; color: #444141; }
       .mm-fleet-card .mm-fc-p-label i { color: var(--color-secondary); }
-      .mm-fleet-card .mm-fc-p-price { font-weight: 400; color: #1a2d6d; }
+      .mm-fleet-card .mm-fc-p-price { font-weight: 400; color: #1a2d6d; text-align: right; }
+      .mm-fleet-card .mm-fc-p-min { display: block; font-style: normal; font-weight: 400; font-size: 13px; color: rgba(26, 45, 109, 0.6); margin: 0; }
       .mm-fleet-card .mm-fc-p-price em { font-style: normal; font-weight: 400; font-size: 13px; color: rgba(26, 45, 109, 0.6); margin-left: 2px; }
       .mm-fleet-card .tag { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 6px 12px; }
       .mm-fleet-card .btn { width: 100%; justify-content: center; display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; border-radius: 12px; }
@@ -426,14 +427,14 @@
            ============================================================ -->
       <section id="mm-results" style="max-width: 1240px; margin: 0 auto; padding: 48px 24px 0; color: #1a2d6d">
         <h2 style="margin: 0 0 4px; text-align: center">Our fleet &amp; standard tariff</h2>
-        <p style="font-size: 16px; color: #1a2d6d; margin: 0 0 18px; text-align: center">Ranked on fare and comfort. Choose 100 km or 200 km coverage per day — extra kilometres are charged per km. Toll, parking and hill charges extra.</p>
+        <p style="font-size: 16px; color: #1a2d6d; margin: 0 0 18px; text-align: center">Ranked on fare and comfort. Choose 100 km or 200 km coverage per day — extra kilometres are charged per km — or go km basis and pay per kilometre with a per-day minimum. Toll, parking and hill charges extra.</p>
 
         <div class="mm-list" style="border: 1px solid rgba(0,0,0,.125); background: #ffffff">
-          <div class="mm-head" style="display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.5fr .9fr 110px; gap: 16px; padding: 10px 18px; background: #eef1f8; color: #1a2d6d; border-bottom: 1px solid rgba(0,0,0,.125); font-size: 11px; letter-spacing: .08em; text-transform: uppercase">
-            <span>Vehicle</span><span>100 km / day</span><span>200 km / day</span><span>Seating capacity</span><span>Extra km</span><span></span>
+          <div class="mm-head" style="display: grid; grid-template-columns: 1.6fr .9fr .9fr 1.1fr 1.1fr .8fr 110px; gap: 16px; padding: 10px 18px; background: #eef1f8; color: #1a2d6d; border-bottom: 1px solid rgba(0,0,0,.125); font-size: 11px; letter-spacing: .08em; text-transform: uppercase">
+            <span>Vehicle</span><span>100 km / day</span><span>200 km / day</span><span>Km basis</span><span>Seating capacity</span><span>Extra km</span><span></span>
           </div>
 
-          <div class="mm-row" style="display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.5fr .9fr 110px; gap: 16px; align-items: center; padding: 18px; border-top: 1px solid rgba(0,0,0,.125)">
+          <div class="mm-row" style="display: grid; grid-template-columns: 1.6fr .9fr .9fr 1.1fr 1.1fr .8fr 110px; gap: 16px; align-items: center; padding: 18px; border-top: 1px solid rgba(0,0,0,.125)">
             <div style="display: flex; align-items: center; gap: 14px">
               <img src="assets/images/c4.png" alt="Etios or Dzire" style="width: 128px; height: 85px; object-fit: cover; border-radius: .25rem; flex: none">
               <div>
@@ -441,12 +442,13 @@
             </div>
             <div style="font-size: 16px">₹3000</div>
             <div style="font-size: 16px">₹4200</div>
+            <div style="font-size: 16px">₹14/km<div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">min 300 km/day</div></div>
             <div style="font-size: 16px">4+1 seater</div>
             <div><div style="font-family: Poppins, sans-serif; font-size: 16px; color: #1a2d6d">₹11/km</div></div>
             <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Etios%20or%20Dzire%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa" style="white-space: nowrap"><i class="fa-brands fa-whatsapp"></i>Book</a>
           </div>
 
-          <div class="mm-row" style="display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.5fr .9fr 110px; gap: 16px; align-items: center; padding: 18px; border-top: 1px solid rgba(0,0,0,.125)">
+          <div class="mm-row" style="display: grid; grid-template-columns: 1.6fr .9fr .9fr 1.1fr 1.1fr .8fr 110px; gap: 16px; align-items: center; padding: 18px; border-top: 1px solid rgba(0,0,0,.125)">
             <div style="display: flex; align-items: center; gap: 14px">
               <img src="assets/images/ertiga-new.jpg" alt="Ertiga" style="width: 128px; height: 85px; object-fit: cover; border-radius: .25rem; flex: none">
               <div>
@@ -454,12 +456,13 @@
             </div>
             <div style="font-size: 16px">₹3800</div>
             <div style="font-size: 16px">₹5000</div>
+            <div style="font-size: 16px">₹18/km<div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">min 300 km/day</div></div>
             <div style="font-size: 16px">7+1 seater</div>
             <div><div style="font-family: Poppins, sans-serif; font-size: 16px; color: #1a2d6d">₹12/km</div></div>
             <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Ertiga%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa" style="white-space: nowrap"><i class="fa-brands fa-whatsapp"></i>Book</a>
           </div>
 
-          <div class="mm-row" style="display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.5fr .9fr 110px; gap: 16px; align-items: center; padding: 18px; border-top: 1px solid rgba(0,0,0,.125)">
+          <div class="mm-row" style="display: grid; grid-template-columns: 1.6fr .9fr .9fr 1.1fr 1.1fr .8fr 110px; gap: 16px; align-items: center; padding: 18px; border-top: 1px solid rgba(0,0,0,.125)">
             <div style="display: flex; align-items: center; gap: 14px">
               <img src="assets/images/old-innova.jpg" alt="Innova or Equivalent" style="width: 128px; height: 85px; object-fit: cover; border-radius: .25rem; flex: none">
               <div>
@@ -467,12 +470,13 @@
             </div>
             <div style="font-size: 16px">₹4000</div>
             <div style="font-size: 16px">₹5500</div>
+            <div style="font-size: 16px">₹20/km<div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">min 300 km/day</div></div>
             <div style="font-size: 16px">7+1 seater</div>
             <div><div style="font-family: Poppins, sans-serif; font-size: 16px; color: #1a2d6d">₹13/km</div></div>
             <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Innova%20or%20Equivalent%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa" style="white-space: nowrap"><i class="fa-brands fa-whatsapp"></i>Book</a>
           </div>
 
-          <div class="mm-row" style="display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.5fr .9fr 110px; gap: 16px; align-items: center; padding: 18px; border-top: 1px solid rgba(0,0,0,.125)">
+          <div class="mm-row" style="display: grid; grid-template-columns: 1.6fr .9fr .9fr 1.1fr 1.1fr .8fr 110px; gap: 16px; align-items: center; padding: 18px; border-top: 1px solid rgba(0,0,0,.125)">
             <div style="display: flex; align-items: center; gap: 14px">
               <img src="assets/images/c6.jpg" alt="Innova Crysta" style="width: 128px; height: 85px; object-fit: cover; border-radius: .25rem; flex: none">
               <div>
@@ -480,12 +484,13 @@
             </div>
             <div style="font-size: 16px">₹4700</div>
             <div style="font-size: 16px">₹6500</div>
+            <div style="font-size: 16px">₹23/km<div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">min 300 km/day</div></div>
             <div style="font-size: 16px">7+1 seater</div>
             <div><div style="font-family: Poppins, sans-serif; font-size: 16px; color: #1a2d6d">₹16/km</div></div>
             <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Innova%20Crysta%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa" style="white-space: nowrap"><i class="fa-brands fa-whatsapp"></i>Book</a>
           </div>
 
-          <div class="mm-row" style="display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.5fr .9fr 110px; gap: 16px; align-items: center; padding: 18px; border-top: 1px solid rgba(0,0,0,.125)">
+          <div class="mm-row" style="display: grid; grid-template-columns: 1.6fr .9fr .9fr 1.1fr 1.1fr .8fr 110px; gap: 16px; align-items: center; padding: 18px; border-top: 1px solid rgba(0,0,0,.125)">
             <div style="display: flex; align-items: center; gap: 14px">
               <img src="assets/images/c3.png" alt="Innova Hycross" style="width: 128px; height: 85px; object-fit: cover; border-radius: .25rem; flex: none">
               <div>
@@ -493,12 +498,13 @@
             </div>
             <div style="font-size: 16px">₹5500</div>
             <div style="font-size: 16px">₹7500</div>
+            <div style="font-size: 16px">₹26/km<div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">min 350 km/day</div></div>
             <div style="font-size: 16px">7+1 seater</div>
             <div><div style="font-family: Poppins, sans-serif; font-size: 16px; color: #1a2d6d">₹20/km</div></div>
             <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Innova%20Hycross%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa" style="white-space: nowrap"><i class="fa-brands fa-whatsapp"></i>Book</a>
           </div>
 
-          <div class="mm-row" style="display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.5fr .9fr 110px; gap: 16px; align-items: center; padding: 18px; border-top: 1px solid rgba(0,0,0,.125)">
+          <div class="mm-row" style="display: grid; grid-template-columns: 1.6fr .9fr .9fr 1.1fr 1.1fr .8fr 110px; gap: 16px; align-items: center; padding: 18px; border-top: 1px solid rgba(0,0,0,.125)">
             <div style="display: flex; align-items: center; gap: 14px">
               <img src="assets/images/c2.png" alt="Tempo Traveller A/C 12 seater" style="width: 128px; height: 85px; object-fit: cover; border-radius: .25rem; flex: none">
               <div>
@@ -506,30 +512,33 @@
             </div>
             <div style="font-size: 16px">₹5000</div>
             <div style="font-size: 16px">₹7200</div>
+            <div style="font-size: 16px">₹24/km<div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">min 350 km/day</div></div>
             <div style="font-size: 16px">12+1 seater</div>
             <div><div style="font-family: Poppins, sans-serif; font-size: 16px; color: #1a2d6d">₹19/km</div></div>
             <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%2012%20seater%20Tempo%20Traveller%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa" style="white-space: nowrap"><i class="fa-brands fa-whatsapp"></i>Book</a>
           </div>
 
-          <div class="mm-row" style="display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.5fr .9fr 110px; gap: 16px; align-items: center; padding: 18px; border-top: 1px solid rgba(0,0,0,.125)">
+          <div class="mm-row" style="display: grid; grid-template-columns: 1.6fr .9fr .9fr 1.1fr 1.1fr .8fr 110px; gap: 16px; align-items: center; padding: 18px; border-top: 1px solid rgba(0,0,0,.125)">
             <div style="display: flex; align-items: center; gap: 14px">
               <img src="assets/images/c1.png" alt="Tempo Traveller A/C 18 seater" style="width: 128px; height: 85px; object-fit: cover; border-radius: .25rem; flex: none">
               <div>
                 <div style="font-family: Poppins, sans-serif; font-size: 16px; color: #1a2d6d">Tempo Traveller A/C</div>              </div>
             </div>
-            <div style="font-size: 16px">₹5000</div>
-            <div style="font-size: 16px">₹7200</div>
+            <div style="font-size: 16px">₹3900/day + ₹20/km<div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">day rent + fuel, below 350 km</div></div>
+            <div style="font-size: 16px">₹3900/day + ₹20/km<div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">day rent + fuel, below 350 km</div></div>
+            <div style="font-size: 16px">₹30/km<div style="color: rgba(26, 45, 109, 0.75); font-size: 14px">above 350 km/day</div></div>
             <div style="font-size: 16px">18+1 seater</div>
-            <div><div style="font-family: Poppins, sans-serif; font-size: 16px; color: #1a2d6d">₹19/km</div></div>
+            <div><div style="font-family: Poppins, sans-serif; font-size: 16px; color: #1a2d6d">—</div></div>
             <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%2018%20seater%20Tempo%20Traveller%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa" style="white-space: nowrap"><i class="fa-brands fa-whatsapp"></i>Book</a>
           </div>
 
-          <div class="mm-row" style="display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.5fr .9fr 110px; gap: 16px; align-items: center; padding: 18px; border-top: 1px solid rgba(0,0,0,.125)">
+          <div class="mm-row" style="display: grid; grid-template-columns: 1.6fr .9fr .9fr 1.1fr 1.1fr .8fr 110px; gap: 16px; align-items: center; padding: 18px; border-top: 1px solid rgba(0,0,0,.125)">
             <div style="display: flex; align-items: center; gap: 14px">
               <img src="assets/images/urbania-new.jpg" alt="Force Urbania A/C 18 seater" style="width: 128px; height: 85px; object-fit: cover; border-radius: .25rem; flex: none">
               <div>
                 <div style="font-family: Poppins, sans-serif; font-size: 16px; color: #1a2d6d">Force Urbania A/C</div>              </div>
             </div>
+            <div style="font-size: 16px">On request</div>
             <div style="font-size: 16px">On request</div>
             <div style="font-size: 16px">On request</div>
             <div style="font-size: 16px">18+1 seater</div>
@@ -551,6 +560,7 @@
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-gauge-high"></i>100 km / day</span><span class="mm-fc-p-price">₹3000<em>/day</em></span></div>
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-gauge-high"></i>200 km / day</span><span class="mm-fc-p-price">₹4200<em>/day</em></span></div>
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-road"></i>Extra km</span><span class="mm-fc-p-price">₹11<em>/km</em></span></div>
+                <div><span class="mm-fc-p-label"><i class="fa-solid fa-route"></i>Km basis</span><span class="mm-fc-p-price">₹14<em>/km</em><em class="mm-fc-p-min">min 300 km/day</em></span></div>
               </div>
               <div style="margin-top: 10px"><span class="tag" style="background: #dde3f3; color: #16234f"><i class="fa-regular fa-star"></i>Cheapest</span></div>
               <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Etios%20or%20Dzire%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa"><i class="fa-brands fa-whatsapp"></i>Book Now</a>
@@ -567,6 +577,7 @@
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-gauge-high"></i>100 km / day</span><span class="mm-fc-p-price">₹3800<em>/day</em></span></div>
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-gauge-high"></i>200 km / day</span><span class="mm-fc-p-price">₹5000<em>/day</em></span></div>
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-road"></i>Extra km</span><span class="mm-fc-p-price">₹12<em>/km</em></span></div>
+                <div><span class="mm-fc-p-label"><i class="fa-solid fa-route"></i>Km basis</span><span class="mm-fc-p-price">₹18<em>/km</em><em class="mm-fc-p-min">min 300 km/day</em></span></div>
               </div>
               <div style="margin-top: 10px"><span class="tag tag-neutral"><i class="fa-regular fa-star"></i>Compact 7-seater</span></div>
               <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Ertiga%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa"><i class="fa-brands fa-whatsapp"></i>Book Now</a>
@@ -583,6 +594,7 @@
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-gauge-high"></i>100 km / day</span><span class="mm-fc-p-price">₹4000<em>/day</em></span></div>
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-gauge-high"></i>200 km / day</span><span class="mm-fc-p-price">₹5500<em>/day</em></span></div>
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-road"></i>Extra km</span><span class="mm-fc-p-price">₹13<em>/km</em></span></div>
+                <div><span class="mm-fc-p-label"><i class="fa-solid fa-route"></i>Km basis</span><span class="mm-fc-p-price">₹20<em>/km</em><em class="mm-fc-p-min">min 300 km/day</em></span></div>
               </div>
               <div style="margin-top: 10px"><span class="tag tag-neutral"><i class="fa-regular fa-star"></i>Family favourite</span></div>
               <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Innova%20or%20Equivalent%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa"><i class="fa-brands fa-whatsapp"></i>Book Now</a>
@@ -599,6 +611,7 @@
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-gauge-high"></i>100 km / day</span><span class="mm-fc-p-price">₹4700<em>/day</em></span></div>
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-gauge-high"></i>200 km / day</span><span class="mm-fc-p-price">₹6500<em>/day</em></span></div>
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-road"></i>Extra km</span><span class="mm-fc-p-price">₹16<em>/km</em></span></div>
+                <div><span class="mm-fc-p-label"><i class="fa-solid fa-route"></i>Km basis</span><span class="mm-fc-p-price">₹23<em>/km</em><em class="mm-fc-p-min">min 300 km/day</em></span></div>
               </div>
               <div style="margin-top: 10px"><span class="tag tag-neutral"><i class="fa-regular fa-star"></i>Extra legroom</span></div>
               <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Innova%20Crysta%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa"><i class="fa-brands fa-whatsapp"></i>Book Now</a>
@@ -615,6 +628,7 @@
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-gauge-high"></i>100 km / day</span><span class="mm-fc-p-price">₹5500<em>/day</em></span></div>
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-gauge-high"></i>200 km / day</span><span class="mm-fc-p-price">₹7500<em>/day</em></span></div>
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-road"></i>Extra km</span><span class="mm-fc-p-price">₹20<em>/km</em></span></div>
+                <div><span class="mm-fc-p-label"><i class="fa-solid fa-route"></i>Km basis</span><span class="mm-fc-p-price">₹26<em>/km</em><em class="mm-fc-p-min">min 350 km/day</em></span></div>
               </div>
               <div style="margin-top: 10px"><span class="tag tag-neutral"><i class="fa-regular fa-star"></i>Quietest ride</span></div>
               <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Innova%20Hycross%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa"><i class="fa-brands fa-whatsapp"></i>Book Now</a>
@@ -631,6 +645,7 @@
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-gauge-high"></i>100 km / day</span><span class="mm-fc-p-price">₹5000<em>/day</em></span></div>
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-gauge-high"></i>200 km / day</span><span class="mm-fc-p-price">₹7200<em>/day</em></span></div>
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-road"></i>Extra km</span><span class="mm-fc-p-price">₹19<em>/km</em></span></div>
+                <div><span class="mm-fc-p-label"><i class="fa-solid fa-route"></i>Km basis</span><span class="mm-fc-p-price">₹24<em>/km</em><em class="mm-fc-p-min">min 350 km/day</em></span></div>
               </div>
               <div style="margin-top: 10px"><span class="tag tag-neutral"><i class="fa-regular fa-star"></i>Group darshan</span></div>
               <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%2012%20seater%20Tempo%20Traveller%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa"><i class="fa-brands fa-whatsapp"></i>Book Now</a>
@@ -644,9 +659,8 @@
               <p class="mm-fc-seats"><i class="fa-solid fa-user"></i>Seat Capacity: <strong>18+1</strong></p>
               <p class="mm-fc-pricing-label"><i class="fa-solid fa-tag"></i>Pricing</p>
               <div class="mm-fc-pricing">
-                <div><span class="mm-fc-p-label"><i class="fa-solid fa-gauge-high"></i>100 km / day</span><span class="mm-fc-p-price">₹5000<em>/day</em></span></div>
-                <div><span class="mm-fc-p-label"><i class="fa-solid fa-gauge-high"></i>200 km / day</span><span class="mm-fc-p-price">₹7200<em>/day</em></span></div>
-                <div><span class="mm-fc-p-label"><i class="fa-solid fa-road"></i>Extra km</span><span class="mm-fc-p-price">₹19<em>/km</em></span></div>
+                <div><span class="mm-fc-p-label"><i class="fa-solid fa-gauge-high"></i>Below 350 km</span><span class="mm-fc-p-price">₹3900<em>/day</em><em class="mm-fc-p-min">+ ₹20/km fuel</em></span></div>
+                <div><span class="mm-fc-p-label"><i class="fa-solid fa-route"></i>Above 350 km</span><span class="mm-fc-p-price">₹30<em>/km</em><em class="mm-fc-p-min">min 350 km/day</em></span></div>
               </div>
               <div style="margin-top: 10px"><span class="tag tag-neutral"><i class="fa-regular fa-star"></i>Big groups</span></div>
               <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%2018%20seater%20Tempo%20Traveller%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa"><i class="fa-brands fa-whatsapp"></i>Book Now</a>
@@ -663,6 +677,7 @@
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-gauge-high"></i>100 km / day</span><span class="mm-fc-p-price">On request</span></div>
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-gauge-high"></i>200 km / day</span><span class="mm-fc-p-price">On request</span></div>
                 <div><span class="mm-fc-p-label"><i class="fa-solid fa-road"></i>Extra km</span><span class="mm-fc-p-price">Ask us</span></div>
+                <div><span class="mm-fc-p-label"><i class="fa-solid fa-route"></i>Km basis</span><span class="mm-fc-p-price">On request</span></div>
               </div>
               <div style="margin-top: 10px"><span class="tag tag-neutral"><i class="fa-regular fa-star"></i>Largest</span></div>
               <a href="https://wa.me/+919994667622?text=I%20want%20to%20book%20Force%20Urbania%20for%20a%20tour%20from%20Madurai" target="_blank" rel="noopener" class="btn mm-wa"><i class="fa-brands fa-whatsapp"></i>Book Now</a>
