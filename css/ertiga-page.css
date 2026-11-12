@@ -886,3 +886,15 @@ body.v-page {
   flex-wrap: wrap;
   gap: 4px 8px;
 }
+
+/* studio (white background) vehicle photo: show the whole vehicle instead of cropping it */
+.v-hero-photo.v-hero-studio img {
+  object-fit: contain;
+  object-position: center 38%;
+  padding: 24px 24px 110px;
+}
+@media (max-width: 700px) {
+  .v-hero-photo.v-hero-studio img {
+    padding: 14px 12px 100px;
+  }
+}
