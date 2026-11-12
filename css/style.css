@@ -776,3 +776,27 @@ footer h3 {
   color: var(--app-secondary-color);
   text-decoration: none;
 }
+
+/* fleet card tariff table (homepage) */
+.fleet-price-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+.fleet-price-table th,
+.fleet-price-table td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 6px 4px;
+}
+.fleet-price-table td:first-child {
+  white-space: nowrap;
+}
+.pricing-details .fleet-price-request {
+  text-align: center;
+  font-weight: normal;
+  padding: 14px 0;
+}
+.pricing-details-container {
+  min-height: 0;
+}
