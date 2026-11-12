@@ -870,3 +870,19 @@ body.v-page {
   .v-switch { grid-template-columns: repeat(2, 1fr); }
   .v-section, .v-section-alt .v-inner { padding-left: 18px; padding-right: 18px; }
 }
+
+/* small screens: stop long email/address text and grid children pushing the page sideways */
+.v-book-inner > *,
+.v-pricing-wrap > *,
+.v-hero-grid > * {
+  min-width: 0;
+}
+.v-book-contact a,
+#navBookNowPhoneSmContainer a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.v-route-meta {
+  flex-wrap: wrap;
+  gap: 4px 8px;
+}
