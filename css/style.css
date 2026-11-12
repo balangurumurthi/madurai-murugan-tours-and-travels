@@ -763,3 +763,16 @@ footer h3 {
     text-align: center; /* Optional: center-align text */
   }
 }
+
+/* popular taxi routes & tour packages (homepage) — links in body text colour, like the tour cards */
+.popular-routes .card-text li {
+  margin-bottom: 4px;
+}
+.popular-routes .card-text a {
+  color: var(--app-primary-color);
+}
+.popular-routes .card-text a:hover,
+.popular-routes .card-text a:focus {
+  color: var(--app-secondary-color);
+  text-decoration: none;
+}
